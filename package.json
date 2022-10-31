@@ -9,7 +9,8 @@
         "test:all": "react-scripts test --watchAll --collect-coverage",
         "test:prod": "react-scripts test --watchAll --collect-coverage --watchAll=false",
         "lint": "eslint .",
-        "server": "json-server --watch ./server/db.json"
+        "server": "json-server --watch ./server/db.json",
+        "prepare": "husky install"
     },
     "dependencies": {
         "@testing-library/jest-dom": "^5.16.5",
@@ -70,6 +71,7 @@
         ]
     },
     "devDependencies": {
+        "husky": "^8.0.1",
         "json-server": "^0.17.0"
     }
 }
