@@ -1,7 +1,8 @@
-import { getData } from '../../services/gifs.api';
+import { getData, getSearchData } from '../../services/gifs.api';
 import './app.css';
 
 export function App() {
-    getData()
+    getData();
+    getSearchData('cactus');
     return <div className="app">Probando</div>;
 }
