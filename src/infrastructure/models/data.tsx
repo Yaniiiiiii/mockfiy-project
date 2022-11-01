@@ -1,20 +1,20 @@
 export type IGif = {
-    data: Array<IData>;
+    data: Array<IElementData>;
     pagination: IPagination;
 };
 
-type IData = {
-    id: string;
+export type IElementData = {
+    title: string;
     images: IImages;
 };
 
-type IImages = {
+export type IImages = {
     original: {
         url: string;
     };
 };
 
-type IPagination = {
+export type IPagination = {
     count: number;
     offset: number;
 };
