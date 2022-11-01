@@ -1,14 +1,14 @@
-export const getData = async () => {
+export const getDataTrending = async () => {
     const url = 'https://api.giphy.com/v1/gifs/trending';
     const search = '?';
     const key = '&api_key=rIBXAUARqWUeHGOtglMKUSh4AZlxU5iZ';
     const limit = '&limit=25';
-    const completeUrl = url +search +key + limit;
+    const completeUrl = url + search + key + limit;
 
     const result = await fetch(completeUrl).then((response) => {
         return response.json();
     });
-    console.log(result);
+    return result;
 };
 
 export const getSearchData = async (dataSearch: string) => {
@@ -21,5 +21,5 @@ export const getSearchData = async (dataSearch: string) => {
     const result = await fetch(completeUrl).then((response) => {
         return response.json();
     });
-    console.log(result);
+    return result;
 };
