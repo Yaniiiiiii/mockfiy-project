@@ -1,32 +1,30 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useReducer } from 'react';
 import { getSearchData } from '../../services/gifs.api';
 import './app.css';
 import * as actions from '../../reducers/action.creator';
+import { gifReducer } from '../../reducers/reducer';
 
 export function App() {
-    const [Search, setSearchState] = useState({
-        type: '',
-        payload: {
-            data: [
-                {
-                    title: ``,
-                    images: {
-                        original: {
-                            url: '',
-                        },
+    const [Search, dispacher] = useReducer(gifReducer, {
+        data: [
+            {
+                title: ``,
+                images: {
+                    original: {
+                        url: '',
                     },
                 },
-            ],
-            pagination: {
-                count: 0,
-                offset: 0,
             },
+        ],
+        pagination: {
+            count: 0,
+            offset: 0,
         },
     });
 
     useEffect(() => {
         getSearchData('Testing').then((resps) => {
-            setSearchState(actions.loadGifAction(resps));
+            dispacher(actions.loadGifAction(resps));
         });
     }, []);
 
@@ -34,7 +32,7 @@ export function App() {
 
     return (
         <div className="app">
-            {Search.payload.data.map((item) => (
+            {Search.data.map((item) => (
                 <img src={item.images.original.url} alt="" />
             ))}
         </div>

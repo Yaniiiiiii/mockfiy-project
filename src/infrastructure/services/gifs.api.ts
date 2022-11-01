@@ -1,6 +1,6 @@
 import { IGif } from '../models/data';
 
-export const getData = async (): Promise<IGif> => {
+export const getDataTrending = async (): Promise<IGif> => {
     const url = 'https://api.giphy.com/v1/gifs/trending';
     const search = '?';
     const key = '&api_key=rIBXAUARqWUeHGOtglMKUSh4AZlxU5iZ';
