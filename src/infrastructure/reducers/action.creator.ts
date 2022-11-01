@@ -1,12 +1,12 @@
-import { IGif } from '../models/data';
+import { IGifsData } from '../models/data';
 import { actionTypes } from './action.types';
 
 export type Action = {
     type: string;
-    payload: Array<IGif> | IGif;
+    payload: Array<IGifsData> | IGifsData;
 };
 
-export const loadTaskAction = (tasks: Array<IGif>): Action => {
+export const loadTaskAction = (tasks: Array<IGifsData>): Action => {
     return {
         type: actionTypes.load,
         payload: tasks,
