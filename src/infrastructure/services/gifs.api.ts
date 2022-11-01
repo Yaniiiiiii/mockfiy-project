@@ -1,9 +1,9 @@
 export const getData = async () => {
     const url = 'https://api.giphy.com/v1/gifs/trending';
-    // const search = '?q=rocket';
+    const search = '?';
     const key = '&api_key=rIBXAUARqWUeHGOtglMKUSh4AZlxU5iZ';
     const limit = '&limit=25';
-    const completeUrl = url + key + limit;
+    const completeUrl = url +search +key + limit;
 
     const result = await fetch(completeUrl).then((response) => {
         return response.json();
