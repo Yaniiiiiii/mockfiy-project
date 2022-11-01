@@ -3,13 +3,14 @@ import { actionTypes } from './action.types';
 
 export type Action = {
     type: string;
-    payload: Array<IGif> | IGif;
+    payload: IGif;
+    // payload: Array<IGif> | IGif;
 };
 
-export const loadTaskAction = (tasks: Array<IGif>): Action => {
+export const loadGifAction = (gifData: IGif): Action => {
     return {
         type: actionTypes.load,
-        payload: tasks,
+        payload: gifData,
     };
 };
 
