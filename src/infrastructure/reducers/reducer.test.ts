@@ -25,24 +25,26 @@ describe('Given the Reducer component', () => {
         });
     });
 
-    test('Then it should return the ', () => {
-        const mockObj = {
-            data: [
-                {
-                    title: ``,
-                    images: {
-                        original: {
-                            url: '',
+    describe('When we use a useless action', () => {
+        test('Then it should return the mockObj', () => {
+            const mockObj = {
+                data: [
+                    {
+                        title: ``,
+                        images: {
+                            original: {
+                                url: '',
+                            },
                         },
                     },
+                ],
+                pagination: {
+                    count: 0,
+                    offset: 0,
                 },
-            ],
-            pagination: {
-                count: 0,
-                offset: 0,
-            },
-        };
-        const result = gifReducer(mockObj, { type: '', payload: mockObj });
-        expect(result).toEqual(mockObj);
+            };
+            const result = gifReducer(mockObj, { type: '', payload: mockObj });
+            expect(result).toEqual(mockObj);
+        });
     });
 });
