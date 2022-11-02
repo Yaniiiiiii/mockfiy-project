@@ -33,6 +33,7 @@ export function App() {
 
     return (
         <div className="app">
+            <h2>Probando</h2>
             {Search.data.map((item: IElementData) => (
                 <img src={item.images.original.url} alt="" />
             ))}
