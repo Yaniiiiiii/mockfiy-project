@@ -1,4 +1,4 @@
-export type IGif = {
+export type IGifsData = {
     data: Array<IElementData>;
     pagination: IPagination;
 };
