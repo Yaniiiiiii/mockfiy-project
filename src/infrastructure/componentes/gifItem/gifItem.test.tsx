@@ -6,6 +6,7 @@ describe('Given the gifItem component', () => {
         test('then it should display the item´s gif', () => {
             const mockItem = {
                 title: 'test',
+                id: ``,
                 images: {
                     original: {
                         url: 'https://media4.giphy.com/media/mi6DsSSNKDbUY/giphy.gif?cid=4e847dbcoiwns7ccq97ezwn4dc6y3qt2qh6zkq5me7u36eqq&rid=giphy.gif&ct=g',

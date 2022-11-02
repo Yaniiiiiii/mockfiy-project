@@ -8,6 +8,7 @@ describe('Given GifList component', () => {
             const mockGifList: Array<IElementData> = [
                 {
                     title: 'test',
+                    id: ``,
                     images: {
                         original: {
                             url: '',
