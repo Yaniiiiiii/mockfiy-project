@@ -3,6 +3,7 @@ import { getSearchData } from '../../services/gifs.api';
 import './app.css';
 import * as actions from '../../reducers/action.creator';
 import { gifReducer } from '../../reducers/reducer';
+import { IElementData, IGifsData } from '../../models/data';
 
 export function App() {
     const [Search, dispacher] = useReducer(gifReducer, {
@@ -32,7 +33,7 @@ export function App() {
 
     return (
         <div className="app">
-            {Search.data.map((item) => (
+            {Search.data.map((item: IElementData) => (
                 <img src={item.images.original.url} alt="" />
             ))}
         </div>
