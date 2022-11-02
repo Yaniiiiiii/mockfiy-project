@@ -4,7 +4,6 @@ import { actionTypes } from './action.types';
 export type Action = {
     type: string;
     payload: IGifsData;
-    // payload: Array<IGif> | IGif;
 };
 
 export const loadGifAction = (gifData: IGifsData): Action => {
@@ -14,23 +13,23 @@ export const loadGifAction = (gifData: IGifsData): Action => {
     };
 };
 
-// export const addTaskAction = (task: Task): Action => {
-//     return {
-//         type: actionTypes.add,
-//         payload: task,
-//     }
-// };
+export const addGifAction = (gifData: IGifsData): Action => {
+    return {
+        type: actionTypes.add,
+        payload: gifData,
+    };
+};
 
-// export const updateTaskAction = (task: Task): Action => {
-//     return {
-//         type: actionTypes.update,
-//         payload: task,
-//     };
-// };
+export const updateGifAction = (gifData: IGifsData): Action => {
+    return {
+        type: actionTypes.update,
+        payload: gifData,
+    };
+};
 
-// export const deleteTaskAction = (task: Task): Action => {
-//     return {
-//         type: actionTypes.delete,
-//         payload: task,
-//     };
-// };
+export const deleteGifAction = (gifData: IGifsData): Action => {
+    return {
+        type: actionTypes.delete,
+        payload: gifData,
+    };
+};
