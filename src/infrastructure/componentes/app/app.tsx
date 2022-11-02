@@ -3,7 +3,7 @@ import { getSearchData } from '../../services/gifs.api';
 import './app.css';
 import * as actions from '../../reducers/action.creator';
 import { gifReducer } from '../../reducers/reducer';
-import { IElementData, IGifsData } from '../../models/data';
+import { IElementData } from '../../models/data';
 
 export function App() {
     const [Search, dispacher] = useReducer(gifReducer, {

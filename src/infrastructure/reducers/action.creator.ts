@@ -18,7 +18,7 @@ export const loadGifAction = (gifData: IGifsData): Action => {
 //     return {
 //         type: actionTypes.add,
 //         payload: task,
-//     };
+//     }
 // };
 
 // export const updateTaskAction = (task: Task): Action => {
