@@ -25,3 +25,26 @@ export const getSearchData = async (dataSearch: string) => {
     });
     return result;
 };
+
+export const getLocalData = async () => {
+    const url = 'http://localhost:3500/userData';
+    const result = await fetch(url).then((response) => {
+        return response.json();
+    });
+    return result;
+};
+
+export const createLocalData = async (gifData: IGifsData) => {
+    const url = 'http://localhost:3500/userData';
+    const result = await fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(gifData),
+        headers: {
+            'content-type': 'application/json',
+        },
+    }).then((response) => response.json());
+
+    return result;
+};
+
+// export const deleteLocalData =
