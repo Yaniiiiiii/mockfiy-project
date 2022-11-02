@@ -47,4 +47,26 @@ export const createLocalData = async (gifData: IGifsData) => {
     return result;
 };
 
-// export const deleteLocalData =
+export const deleteLocalData = async (id: number) => {
+    const url = `http://localhost:3500/userData/${id}`;
+    const result = await fetch(url, {
+        method: 'DELETE',
+    });
+
+    return result;
+};
+
+export const updateLocalData = async (
+    id: number,
+    partialGifData: Partial<IGifsData>
+) => {
+    const url = `http://localhost:3500/userData/${id}`;
+    const result = await fetch(url, {
+        method: 'PATCH',
+        body: JSON.stringify(partialGifData),
+        headers: {
+            'content-type': 'application/json',
+        },
+    }).then((response) => response.json());
+    return result;
+};

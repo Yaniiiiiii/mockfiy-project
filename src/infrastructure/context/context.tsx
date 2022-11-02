@@ -4,4 +4,3 @@ export const initialContext: () = ()
 
 export const gifContext= createContext(initialContext)
 
-}

@@ -3,12 +3,20 @@ import { gifLocalReducer } from '../reducers/local.reducer';
 
 export function useGif() {
     const initialState = {
-        title: 'test',
-        id: ``,
-        images: {
-            original: {
-                url: '',
+        data: [
+            {
+                title: ``,
+                id: ``,
+                images: {
+                    original: {
+                        url: '',
+                    },
+                },
             },
+        ],
+        pagination: {
+            count: 0,
+            offset: 0,
         },
     };
 
