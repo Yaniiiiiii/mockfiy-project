@@ -29,12 +29,14 @@ export function useLocalGif() {
 
     const handleEraaser = (gif: IElementData) => {
         deleteLocalData(Number.parseFloat(gif.id)).then((response) => {
-            dispach(actions.deleteLocalGifAction(localGif));
+            if (response.ok) {
+                dispach(actions.deleteLocalGifAction(gif));
+            }
         });
     };
 
-    const handleUpdate = (gif: IElementData) => {
-        updateLocalData(updateLocalData.id, updateLocalData).then(
+    const handleUpdate = (updateGif: IElementData) => {
+        updateLocalData(Number.parseFloat(updateGif.id), updateGif).then(
             (localGif) => {
                 dispach(actions.updateLocalGifAction(localGif));
             }

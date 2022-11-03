@@ -8,7 +8,9 @@ export const getLocalData = async (): Promise<Array<IElementData>> => {
     return result;
 };
 
-export const createLocalData = async (newGif: IElementData) => {
+export const createLocalData = async (
+    newGif: IElementData
+): Promise<IElementData> => {
     const url = 'http://localhost:3500/data';
     const result = await fetch(url, {
         method: 'POST',

@@ -3,10 +3,7 @@ import { IElementData } from '../../models/data';
 import { localAction } from './local.action.creator';
 import { localActionTypes } from './local.action.types';
 
-export function localReducer(
-    state: IElementData[] | IElementData,
-    action: localAction
-) {
+export function localReducer(state: IElementData[], action: localAction) {
     let payload: IElementData;
 
     switch (action.type) {
@@ -15,7 +12,7 @@ export function localReducer(
 
         case localActionTypes.add:
             payload = action.payload as IElementData;
-            return [state, payload];
+            return [...state, payload];
 
         case localActionTypes.update:
             payload = action.payload as IElementData;
@@ -30,7 +27,6 @@ export function localReducer(
             );
 
         default:
-            // Dijiste que se aceptaba un any ¯\_(ツ)_/¯
-            return [...(state as any)];
+            return [...state];
     }
 }
