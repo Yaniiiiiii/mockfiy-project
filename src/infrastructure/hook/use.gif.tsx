@@ -28,7 +28,7 @@ export function useLocalGif() {
     };
 
     const handleEraser = (gif: IElementData) => {
-        deleteLocalData(Number.parseFloat(gif.id)).then((response) => {
+        deleteLocalData(gif.id).then((response) => {
             if (response.ok) {
                 dispatch(actions.deleteLocalGifAction(gif));
             }
