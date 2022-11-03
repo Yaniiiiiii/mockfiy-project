@@ -8,13 +8,14 @@ node_modules
 # testing
 /coverage
 
-#Serber db.json
+#Server db.json
 /db.json
 
 # production
 /build
 
 # misc
+.env
 .DS_Store
 .env.local
 .env.development.local
