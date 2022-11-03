@@ -24,15 +24,6 @@
                     "url": "https://media3.giphy.com/media/3ohnEqJ1XOfvWaSk7e/giphy.gif?cid=4e847dbc2415h1ymwyg23fi2so04kc9t3n84xw6xpdf1g583&rid=giphy.gif&ct=g"
                 }
             }
-        },
-        {
-            "title": "Yanira",
-            "id": "TEST",
-            "images": {
-                "original": {
-                    "url": "TEST"
-                }
-            }
         }
     ]
 }

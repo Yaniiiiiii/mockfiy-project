@@ -28,7 +28,7 @@ export function useLocalGif() {
     };
 
     const handleEraser = (gif: IElementData) => {
-        deleteLocalData(Number.parseFloat(gif.id)).then((response) => {
+        deleteLocalData(gif.id).then((response) => {
             if (response.ok) {
                 dispatch(actions.deleteLocalGifAction(gif));
             }
@@ -36,11 +36,9 @@ export function useLocalGif() {
     };
 
     const handleUpdate = (updateGif: IElementData) => {
-        updateLocalData(Number.parseFloat(updateGif.id), updateGif).then(
-            (localGif) => {
-                dispatch(actions.updateLocalGifAction(localGif));
-            }
-        );
+        updateLocalData(updateGif.id, updateGif).then((localGif) => {
+            dispatch(actions.updateLocalGifAction(localGif));
+        });
     };
 
     useEffect(() => {

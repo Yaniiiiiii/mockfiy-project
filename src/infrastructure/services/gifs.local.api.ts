@@ -23,17 +23,17 @@ export const createLocalData = async (
     return result;
 };
 
-export const deleteLocalData = async (id: number) => {
+export const deleteLocalData = async (id: string) => {
     const url = `http://localhost:3500/data/${id}`;
     const result = await fetch(url, {
         method: 'DELETE',
-    });
+    }).then((response) => response.json());
 
     return result;
 };
 
 export const updateLocalData = async (
-    id: number,
+    id: string,
     partialGifData: IElementData
 ) => {
     const url = `http://localhost:3500/data/${id}`;
