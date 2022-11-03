@@ -1,4 +1,4 @@
-import * as actions from '../reducers/action.creator';
+import * as actions from './action.creator';
 import { gifReducer } from './reducer';
 
 describe('Given the Reducer component', () => {

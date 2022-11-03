@@ -1,8 +1,8 @@
 import { useEffect, useReducer } from 'react';
 import { getSearchData } from '../../services/gifs.api';
 import './app.css';
-import * as actions from '../../reducers/action.creator';
-import { gifReducer } from '../../reducers/reducer';
+import * as actions from '../privateReducer/action.creator';
+import { gifReducer } from '../privateReducer/reducer';
 import { IElementData } from '../../models/data';
 
 export function App() {

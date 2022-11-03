@@ -1,71 +1,33 @@
 import { useCallback, useReducer } from 'react';
-import { gifLocalReducer } from '../reducers/local.reducer';
+import * as actions from '../componentes/localReducer/local.action.creator';
+import { localReducer } from '../componentes/localReducer/local.reducer';
+import { IElementData } from '../models/data';
 import {
     createLocalData,
     deleteLocalData,
     getLocalData,
-    updateLocalData,
 } from '../services/gifs.api';
-import * as actions from '../reducers/action.creator';
-import { IGifsData } from '../models/data';
-import { gifReducer } from '../reducers/reducer';
 
-export function useGif() {
-    const initialState = {
-        data: [
-            {
-                title: ``,
-                id: ``,
-                images: {
-                    original: {
-                        url: '',
-                    },
-                },
-            },
-        ],
-        pagination: {
-            count: 0,
-            offset: 0,
-        },
-    };
+export function useLocalGif() {
+    const initialState: Array<IElementData> = [];
 
-    const [gifsLocal, dispatch] = useReducer(gifReducer, initialState);
+    const [localGif, dispach] = useReducer(localReducer, initialState);
 
-    const handleLoad = useCallback(() => {
-        getLocalData().then((gifsLocal) =>
-            dispatch(actions.loadGifAction(gifsLocal))
-        );
-    }, []);
+    // const handleLoad = useCallback(() => {
+    //     getLocalData().then((response) =>
+    //         dispach(actions.loadLocalGifAction(response))
+    //     );
+    // }, []);
 
-    const handleAdd = (newGiF: IGifsData) => {
-        createLocalData(newGiF).then((gif: IGifsData) => {
-            dispatch(actions.addGifAction(gif));
-        });
-    };
+    // const handleAdd = (newGif: IElementData) => {
+    //     createLocalData(newGif).then((response) =>
+    //         dispach(actions.addLocalGifAction(response))
+    //     );
+    // };
 
-    const handlerEraser = (gif: IGifsData) => {
-        deleteLocalData(+gif.data[0].id).then((response) => {
-            if (response.ok) {
-                dispatch(actions.deleteGifAction(gif));
-            }
-        });
-    };
-
-    const handlerUpdate = (updateGif: IGifsData) => {
-        updateLocalData(+updateGif.data[0].id, updateGif).then((gifsLocal) => {
-            dispatch(actions.updateGifAction(updateGif));
-        });
-    };
-
-    //     useEffect(() => {
-    //         handleLoad();
-    //     }, [handleLoad]);
-
-    //     return {
-    //         gifsLocal,
-    //         handleAdd,
-    //         handlerEraser,
-    //         handlerUpdate,
-    //     },
-    // }
+    // const handleEraaser = (gif: IElementData) => {
+    //     deleteLocalData(Number.parseFloat(gif.id)).then((response) => {
+    //         dispach(actions.deleteLocalGifAction(response));
+    //     });
+    // };
 }
