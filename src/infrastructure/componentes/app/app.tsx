@@ -1,10 +1,10 @@
-import { Menu } from '../menu/menu';
+import { Layout } from '../layout/layout';
 import { AppRoutes } from '../routes/app.routes';
 
 export function App() {
     return (
-        <AppRoutes>
-            <Menu></Menu>
-        </AppRoutes>
+        <Layout>
+            <AppRoutes></AppRoutes>
+        </Layout>
     );
 }

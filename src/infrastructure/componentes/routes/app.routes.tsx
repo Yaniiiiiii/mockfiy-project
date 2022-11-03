@@ -3,7 +3,7 @@ import { DetailsPage } from '../../../features/details/page/details';
 import { FavPage } from '../../../features/favorite/fav.page';
 import { HomePage } from '../../../features/home/page/home.page';
 
-export function AppRoutes({ children }: { children: JSX.Element }) {
+export function AppRoutes() {
     return (
         <Routes>
             <Route path="" element={<HomePage></HomePage>}></Route>
