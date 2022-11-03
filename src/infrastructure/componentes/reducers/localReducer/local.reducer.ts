@@ -1,4 +1,4 @@
-import { IElementData } from '../../models/data';
+import { IElementData } from '../../../models/data';
 
 import { localAction } from './local.action.creator';
 import { localActionTypes } from './local.action.types';

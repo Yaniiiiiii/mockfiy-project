@@ -2,15 +2,15 @@ import { createContext } from 'react';
 import { IElementData } from '../models/data';
 
 const initialContext: {
-    gifs: Array<IElementData>;
+    localGif: IElementData[];
     handleAdd: (newGif: IElementData) => void;
-    handlerEraser: (gif: IElementData) => void;
-    handlerUpdate: (gif: IElementData) => void;
+    handleEraser: (gif: IElementData) => void;
+    handleUpdate: (updateGif: IElementData) => void;
 } = {
-    gifs: [],
+    localGif: [],
     handleAdd: () => undefined,
-    handlerEraser: () => undefined,
-    handlerUpdate: () => undefined,
+    handleEraser: () => undefined,
+    handleUpdate: () => undefined,
 };
 
 export const GifContext = createContext(initialContext);

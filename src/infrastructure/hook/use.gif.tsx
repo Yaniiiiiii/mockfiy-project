@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useReducer } from 'react';
-import * as actions from '../componentes/localReducer/local.action.creator';
-import { localReducer } from '../componentes/localReducer/local.reducer';
+import * as actions from '../componentes/reducers/localReducer/local.action.creator';
+import { localReducer } from '../componentes/reducers/localReducer/local.reducer';
 import { IElementData } from '../models/data';
 
 import {
@@ -13,24 +13,24 @@ import {
 export function useLocalGif() {
     const initialState: Array<IElementData> = [];
 
-    const [localGif, dispach] = useReducer(localReducer, initialState);
+    const [localGif, dispatch] = useReducer(localReducer, initialState);
 
     const handleLoad = useCallback(() => {
         getLocalData().then((response) =>
-            dispach(actions.loadLocalGifAction(response))
+            dispatch(actions.loadLocalGifAction(response))
         );
     }, []);
 
     const handleAdd = (newGif: IElementData) => {
         createLocalData(newGif).then((localGif: IElementData) =>
-            dispach(actions.addLocalGifAction(localGif))
+            dispatch(actions.addLocalGifAction(localGif))
         );
     };
 
-    const handleEraaser = (gif: IElementData) => {
+    const handleEraser = (gif: IElementData) => {
         deleteLocalData(Number.parseFloat(gif.id)).then((response) => {
             if (response.ok) {
-                dispach(actions.deleteLocalGifAction(gif));
+                dispatch(actions.deleteLocalGifAction(gif));
             }
         });
     };
@@ -38,7 +38,7 @@ export function useLocalGif() {
     const handleUpdate = (updateGif: IElementData) => {
         updateLocalData(Number.parseFloat(updateGif.id), updateGif).then(
             (localGif) => {
-                dispach(actions.updateLocalGifAction(localGif));
+                dispatch(actions.updateLocalGifAction(localGif));
             }
         );
     };
@@ -50,7 +50,7 @@ export function useLocalGif() {
     return {
         localGif,
         handleAdd,
-        handleEraaser,
+        handleEraser,
         handleUpdate,
     };
 }

@@ -1,4 +1,4 @@
-import { IGifsData } from '../../models/data';
+import { IGifsData } from '../../../models/data';
 import { actionTypes } from './action.types';
 
 export type Action = {
