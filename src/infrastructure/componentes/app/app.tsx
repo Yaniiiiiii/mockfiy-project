@@ -10,7 +10,7 @@ export function App() {
         data: [
             {
                 title: ``,
-                id: ``,
+                id: '',
                 images: {
                     original: {
                         url: '',
