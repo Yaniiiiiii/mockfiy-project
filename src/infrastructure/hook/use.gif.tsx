@@ -36,11 +36,9 @@ export function useLocalGif() {
     };
 
     const handleUpdate = (updateGif: IElementData) => {
-        updateLocalData(Number.parseFloat(updateGif.id), updateGif).then(
-            (localGif) => {
-                dispatch(actions.updateLocalGifAction(localGif));
-            }
-        );
+        updateLocalData(updateGif.id, updateGif).then((localGif) => {
+            dispatch(actions.updateLocalGifAction(localGif));
+        });
     };
 
     useEffect(() => {
