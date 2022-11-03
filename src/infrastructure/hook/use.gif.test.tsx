@@ -25,7 +25,7 @@ const newGif: IElementData = {
     },
 };
 
-describe('Given', () => {
+describe('Given the custom hook "useGif" component', () => {
     let result: {
         current: {
             localGif: IElementData[];
@@ -38,19 +38,50 @@ describe('Given', () => {
     beforeEach(() => {
         (apiCalls.createLocalData as jest.Mock).mockResolvedValue(newGif);
         (apiCalls.getLocalData as jest.Mock).mockResolvedValue([gif1]);
+        (apiCalls.updateLocalData as jest.Mock).mockResolvedValue(newGif);
+        (apiCalls.deleteLocalData as jest.Mock).mockResolvedValue({
+            gif1,
+        });
         ({ result } = renderHook(() => useLocalGif()));
     });
 
-    test('should first', async () => {
+    test('Then should return "gif1"', async () => {
         await waitFor(() => {
             expect(result.current.localGif).toEqual([gif1]);
         });
     });
 
-    test('should first b', async () => {
+    test('When we use the handleAdd, then it should return the "newGif" object', async () => {
         await waitFor(() => {
             result.current.handleAdd(newGif);
             expect(result.current.localGif.at(-1)).toEqual(newGif);
+        });
+        await waitFor(() => {
+            expect(apiCalls.createLocalData).toHaveBeenCalled();
+        });
+    });
+
+    test('When we use handleUpdate then it should return the "newGif" object updated', async () => {
+        await waitFor(() => {
+            result.current.handleUpdate(newGif);
+            expect(result.current.localGif.at(-1)).toEqual(newGif);
+        });
+    });
+
+    test('When we use handleUpdate then it should return the "gif1" object updated', async () => {
+        await waitFor(() => {
+            result.current.handleEraser(gif1);
+            expect(result.current.localGif.at(-1)).toEqual(gif1);
+        });
+    });
+
+    test('When we use handleUpdate then it should return the "gif1" object update', async () => {
+        (apiCalls.deleteLocalData as jest.Mock).mockResolvedValue({
+            ok: true,
+        });
+        await waitFor(() => {
+            result.current.handleEraser(gif1);
+            expect(apiCalls.deleteLocalData).toHaveBeenCalled();
         });
     });
 });
