@@ -5,6 +5,7 @@ export type IGifsData = {
 
 export type IElementData = {
     title: string;
+    id: string;
     images: IImages;
 };
 
