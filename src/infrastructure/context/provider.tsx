@@ -1,12 +1,9 @@
-import { JsxElement } from "typescript";
+import { useLocalGif } from '../hook/use.gif';
+import { GifContext } from './context';
+export function GifContextProvider({ children }: { children: JSX.Element }) {
+    const context = useLocalGif();
 
-export function gifContextProvider ({children}:{children:JsxElement}) {
-
-
-
-
-return (
-    
-)
-
+    return (
+        <GifContext.Provider value={context}>{children}</GifContext.Provider>
+    );
 }
