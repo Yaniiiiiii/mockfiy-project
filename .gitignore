@@ -9,7 +9,7 @@ node_modules
 /coverage
 
 #Serber db.json
-db.json
+/db.json
 
 # production
 /build
