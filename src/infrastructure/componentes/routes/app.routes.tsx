@@ -3,12 +3,15 @@ import { DetailsPage } from '../../../features/details/page/details';
 import { FavPage } from '../../../features/favorite/fav.page';
 import { HomePage } from '../../../features/home/page/home.page';
 
-export function AppRoutes() {
+export function AppRoutes({ children }: { children: JSX.Element }) {
     return (
         <Routes>
-            <Route path="home" element={<HomePage></HomePage>}></Route>
-            <Route path="got" element={<DetailsPage></DetailsPage>}></Route>
-            <Route path="todo" element={<FavPage></FavPage>}></Route>
+            <Route path="" element={<HomePage></HomePage>}></Route>
+            <Route
+                path="/Details"
+                element={<DetailsPage></DetailsPage>}
+            ></Route>
+            <Route path="/Fav" element={<FavPage></FavPage>}></Route>
             <Route path="*" element={<Navigate replace to="" />}></Route>
         </Routes>
     );
