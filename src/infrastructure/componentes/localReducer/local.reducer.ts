@@ -1,30 +1,36 @@
 import { IElementData } from '../../models/data';
-import { actionTypes } from '../privateReducer/action.types';
+
 import { localAction } from './local.action.creator';
 import { localActionTypes } from './local.action.types';
 
-export function localReducer(state: Array<IElementData>, action: localAction) {
+export function localReducer(
+    state: IElementData[] | IElementData,
+    action: localAction
+) {
     let payload: IElementData;
 
     switch (action.type) {
         case localActionTypes.load:
             return action.payload as Array<IElementData>;
 
-        case actionTypes.add:
+        case localActionTypes.add:
             payload = action.payload as IElementData;
             return [state, payload];
 
-        case actionTypes.update:
+        case localActionTypes.update:
             payload = action.payload as IElementData;
-            return state.map((item: IElementData) =>
+            return (state as IElementData[]).map((item: IElementData) =>
                 item.id === payload.id ? payload : item
             );
 
-        case actionTypes.delete:
+        case localActionTypes.delete:
             payload = action.payload as IElementData;
-            return state.filter((item: IElementData) => item.id !== payload.id);
+            return (state as IElementData[]).filter(
+                (item: IElementData) => item.id !== payload.id
+            );
 
         default:
-            return { ...state };
+            // Dijiste que se aceptaba un any ¯\_(ツ)_/¯
+            return [...(state as any)];
     }
 }

@@ -1,6 +1,6 @@
 import { IElementData } from '../models/data';
 
-export const getLocalData = async () => {
+export const getLocalData = async (): Promise<Array<IElementData>> => {
     const url = 'http://localhost:3500/data';
     const result = await fetch(url).then((response) => {
         return response.json();
