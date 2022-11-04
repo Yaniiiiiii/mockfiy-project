@@ -1,7 +1,7 @@
 import { createContext } from 'react';
 import { IElementData } from '../models/data';
 
-const initialContext: {
+export const initialContext: {
     localGif: IElementData[];
     handleAdd: (newGif: IElementData) => void;
     handleEraser: (gif: IElementData) => void;
