@@ -26,7 +26,7 @@ export const getSearchData = async (dataSearch: string): Promise<IGifsData> => {
     return result;
 };
 
-export const getGifById = async (id: string): Promise<IElementData> => {
+export const getGifById = async (id: string): Promise<any> => {
     const url = 'https://api.giphy.com/v1/gifs/';
     const search = `${id}`;
     const key = '?api_key=rIBXAUARqWUeHGOtglMKUSh4AZlxU5iZ';
