@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { IElementData } from '../../models/data';
 import { Giflist } from './gif.list';
+import { MemoryRouter as Router } from 'react-router-dom';
 
 describe('Given GifList component', () => {
     describe('When we render the component', () => {
@@ -10,13 +11,17 @@ describe('Given GifList component', () => {
                     title: 'test',
                     id: ``,
                     images: {
-                        original: {
+                        downsized: {
                             url: '',
                         },
                     },
                 },
             ];
-            render(<Giflist data={mockGifList} />);
+            render(
+                <Router>
+                    <Giflist data={mockGifList} />
+                </Router>
+            );
             const element = screen.getByAltText(/test/i);
             expect(element).toBeInTheDocument();
         });

@@ -21,7 +21,7 @@ describe('Given the gifs.local.api component', () => {
                 title: '',
                 id: '',
                 images: {
-                    original: {
+                    downsized: {
                         url: '',
                     },
                 },
@@ -51,7 +51,7 @@ describe('Given the gifs.local.api component', () => {
                 title: '',
                 id: 'TEST',
                 images: {
-                    original: {
+                    downsized: {
                         url: '',
                     },
                 },

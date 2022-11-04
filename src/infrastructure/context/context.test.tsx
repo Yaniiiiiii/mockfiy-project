@@ -12,7 +12,7 @@ describe('Given the context GitContext', () => {
                 title: 'test',
                 id: `test`,
                 images: {
-                    original: {
+                    downsized: {
                         url: 'test',
                     },
                 },
