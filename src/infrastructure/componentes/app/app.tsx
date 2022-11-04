@@ -1,4 +1,5 @@
 import { Auth0Provider } from '@auth0/auth0-react';
+import { GifContextProvider } from '../../context/provider';
 import { Layout } from '../layout/layout';
 import { AppRoutes } from '../routes/app.routes';
 
@@ -12,7 +13,9 @@ export function App() {
             clientSecret="3Wylh8sXsj-QHTWNUbOUuyec_hVrIa6kQU1U1qJEcRtr1Bg_hph_NhnCJH_AcpNL"
         >
             <Layout>
-                <AppRoutes></AppRoutes>
+                <GifContextProvider>
+                    <AppRoutes></AppRoutes>
+                </GifContextProvider>
             </Layout>
         </Auth0Provider>
     );

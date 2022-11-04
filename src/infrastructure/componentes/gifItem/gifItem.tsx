@@ -4,9 +4,12 @@ import { GifContext } from '../../context/context';
 import { IElementData } from '../../models/data';
 
 export function GifItem({ item }: { item: IElementData }) {
-    const { handleAdd } = useContext(GifContext);
+    const { handleAdd, handleEraser } = useContext(GifContext);
     const handleClickAdd = () => {
         handleAdd(item);
+    };
+    const handleClickDelete = () => {
+        handleEraser(item);
     };
     return (
         <li>
@@ -15,12 +18,21 @@ export function GifItem({ item }: { item: IElementData }) {
                     src={item.images.downsized.url}
                     alt={`gif ${item.title}`}
                 ></img>
-                <img
-                    src={item.images.original.url}
-                    alt={'gif' + item.title}
-                ></img>
-                <button className={`♡`} onClick={handleClickAdd}></button>
             </Link>
+            <button
+                className={`♡`}
+                onClick={handleClickAdd}
+                style={{ width: '150px', height: '50px', fontSize: '2rem' }}
+            >
+                ♡
+            </button>
+            <button
+                className={`♡`}
+                onClick={handleClickDelete}
+                style={{ width: '150px', height: '50px', fontSize: '2rem' }}
+            >
+                🗑
+            </button>
         </li>
     );
 }
