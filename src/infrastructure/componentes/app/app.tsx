@@ -1,9 +1,10 @@
-import './app.css';
+import { Layout } from '../layout/layout';
+import { AppRoutes } from '../routes/app.routes';
 
 export function App() {
     return (
-        <div className="app">
-            <h2>Probando</h2>
-        </div>
+        <Layout>
+            <AppRoutes></AppRoutes>
+        </Layout>
     );
 }

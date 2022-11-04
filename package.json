@@ -1,5 +1,5 @@
 {
-    "name": "week4.todo",
+    "name": "mockify.202210.mad",
     "version": "0.1.0",
     "private": true,
     "scripts": {
@@ -10,7 +10,8 @@
         "test:prod": "react-scripts test --watchAll --collect-coverage --watchAll=false",
         "lint": "eslint .",
         "server": "json-server --watch ./server/db.json --port 3500",
-        "prepare": "husky install"
+        "prepare": "husky install",
+        "fix": "npx eclint fix -i space -s 4 -n true"
     },
     "dependencies": {
         "@testing-library/jest-dom": "^5.16.5",
