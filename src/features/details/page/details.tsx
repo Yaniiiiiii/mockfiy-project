@@ -36,26 +36,14 @@ export function DetailsPage() {
     }, [id]);
     console.log(gifDetails);
 
-    gifDetails.data.id
-        ? (template = (
-              <>
-                  <p>Loading</p>
-              </>
-          ))
-        : (template = (
-              <div className="details">
-                  <h1>Details</h1>
-                  <p>{id}</p>
-                  <img src={gifDetails.data.images.downsized.url} alt="" />
-              </div>
-          ));
-
-    // return (
-    //     <div className="details">
-    //         <h1>Details</h1>
-    //         <p>{id}</p>
-    //         <img src={gifDetails.images.downsized.url} alt="" />
-    //     </div>
-    // );
-    return template;
+    return (
+        <div className="details">
+            <h1>Details</h1>
+            <p>{id}</p>
+            <img
+                src={gifDetails.data.images.downsized.url}
+                alt={`${gifDetails.data.title} gif`}
+            />
+        </div>
+    );
 }
