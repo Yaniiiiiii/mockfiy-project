@@ -10,7 +10,7 @@ const gif1: IElementData = {
     id: 'test',
     title: 'test',
     images: {
-        original: {
+        downsized: {
             url: 'test',
         },
     },
@@ -19,7 +19,7 @@ const newGif: IElementData = {
     id: 'test',
     title: 'test',
     images: {
-        original: {
+        downsized: {
             url: 'test',
         },
     },

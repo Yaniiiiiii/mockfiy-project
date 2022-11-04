@@ -17,7 +17,7 @@ describe('Given AppRoutes component', () => {
     describe('When we render the component and the route is "Details', () => {
         test('Then should render the Details component', () => {
             render(
-                <Router initialEntries={['/Details']}>
+                <Router initialEntries={['/Details/test']}>
                     <AppRoutes />
                 </Router>
             );

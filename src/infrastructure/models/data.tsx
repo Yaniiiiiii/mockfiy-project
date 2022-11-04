@@ -3,6 +3,11 @@ export type IGifsData = {
     pagination: IPagination;
 };
 
+export type IGifsIdData = {
+    data: IElementData;
+    pagination: IPagination;
+};
+
 export type IElementData = {
     title: string;
     id: string;
@@ -10,7 +15,7 @@ export type IElementData = {
 };
 
 export type IImages = {
-    original: {
+    downsized: {
         url: string;
     };
 };
