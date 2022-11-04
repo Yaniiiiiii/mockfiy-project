@@ -2,7 +2,6 @@ import { render, screen } from '@testing-library/react';
 import { MemoryRouter as Router } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import { PrivateRoute } from './private.route';
-import { FavPage } from '../../../features/favorite/fav.page';
 
 jest.mock('@auth0/auth0-react');
 
@@ -15,7 +14,7 @@ describe('Given PrivateRoute component', () => {
             render(
                 <Router>
                     <PrivateRoute>
-                        <FavPage></FavPage>
+                        <p>PrivateRoute</p>
                     </PrivateRoute>
                 </Router>
             );

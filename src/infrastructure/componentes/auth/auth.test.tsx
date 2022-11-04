@@ -12,7 +12,7 @@ describe('Given Auth component', () => {
             );
         });
         test('Then it should display the title', () => {
-            const title = new RegExp('Auth', 'i');
+            const title = new RegExp('home');
             const element = screen.getByText(title);
             expect(element).toBeInTheDocument();
         });
