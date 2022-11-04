@@ -5,7 +5,6 @@ import { IGifsData } from '../../../infrastructure/models/data';
 import { getGifById } from '../../../infrastructure/services/gifs.api';
 
 export function DetailsPage() {
-    let template: JSX.Element;
     const { id } = useParams();
 
     const initialStateDetails = {

@@ -7,7 +7,7 @@ export function GifItem({ item }: { item: IElementData }) {
             <Link to={`/Details/${item.id}`}>
                 <img
                     src={item.images.downsized.url}
-                    alt={'gif' + item.title}
+                    alt={`gif ${item.title}`}
                 ></img>
             </Link>
         </li>
