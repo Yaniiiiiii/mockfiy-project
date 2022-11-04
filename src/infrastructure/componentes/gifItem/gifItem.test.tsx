@@ -8,7 +8,7 @@ describe('Given the gifItem component', () => {
                 title: 'test',
                 id: ``,
                 images: {
-                    original: {
+                    downsized: {
                         url: 'https://media4.giphy.com/media/mi6DsSSNKDbUY/giphy.gif?cid=4e847dbcoiwns7ccq97ezwn4dc6y3qt2qh6zkq5me7u36eqq&rid=giphy.gif&ct=g',
                     },
                 },

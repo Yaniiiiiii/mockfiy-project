@@ -14,7 +14,7 @@ export function HomePage() {
                 id: '',
                 title: ``,
                 images: {
-                    original: {
+                    downsized: {
                         url: '',
                     },
                 },
@@ -36,7 +36,7 @@ export function HomePage() {
                 id: '',
                 title: ``,
                 images: {
-                    original: {
+                    downsized: {
                         url: '',
                     },
                 },
@@ -70,7 +70,6 @@ export function HomePage() {
             trendingDispatch(actions.loadGifAction(resps));
         });
     }, [form.search]);
-    console.log(trending);
     // ----------------------------------------------------------------
     return (
         <div className="home">

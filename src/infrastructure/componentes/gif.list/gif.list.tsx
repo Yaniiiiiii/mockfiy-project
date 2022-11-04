@@ -7,7 +7,7 @@ export function Giflist({ data }: { data: Array<IElementData> }) {
         <section>
             <ul>
                 {GifData.map((item: IElementData) => (
-                    <GifItem key="item.title" item={item}></GifItem>
+                    <GifItem item={item}></GifItem>
                 ))}
             </ul>
         </section>

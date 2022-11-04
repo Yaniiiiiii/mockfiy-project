@@ -10,7 +10,7 @@ export type IElementData = {
 };
 
 export type IImages = {
-    original: {
+    downsized: {
         url: string;
     };
 };

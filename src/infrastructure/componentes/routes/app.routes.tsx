@@ -8,7 +8,7 @@ export function AppRoutes() {
         <Routes>
             <Route path="" element={<HomePage></HomePage>}></Route>
             <Route
-                path={`/Details`}
+                path={`/Details/:id`}
                 element={<DetailsPage></DetailsPage>}
             ></Route>
             <Route path="/Fav" element={<FavPage></FavPage>}></Route>

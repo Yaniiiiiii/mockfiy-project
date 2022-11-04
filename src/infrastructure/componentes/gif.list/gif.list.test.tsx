@@ -10,7 +10,7 @@ describe('Given GifList component', () => {
                     title: 'test',
                     id: ``,
                     images: {
-                        original: {
+                        downsized: {
                             url: '',
                         },
                     },
