@@ -32,7 +32,7 @@ describe('Given AppRoutes component', () => {
                     <AppRoutes />
                 </Router>
             );
-            expect(screen.getByText('Favorite')).toBeInTheDocument();
+            expect(screen.getByText('Login')).toBeInTheDocument();
         });
     });
 });

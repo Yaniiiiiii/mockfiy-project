@@ -1,3 +1,4 @@
+import { Auth } from '../../../infrastructure/componentes/auth/auth';
 import { SyntheticEvent, useEffect, useReducer, useState } from 'react';
 import { gifReducer } from '../../../infrastructure/componentes/reducers/privateReducer/reducer';
 import {
@@ -74,6 +75,7 @@ export function HomePage() {
     return (
         <div className="home">
             <h1>Home</h1>
+            <Auth></Auth>
             <form
                 style={{
                     display: 'flex',
