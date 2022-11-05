@@ -3,8 +3,6 @@ import styles from './auth.module.css';
 
 export function Auth() {
     const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
-    console.log({ isAuthenticated });
-    const title = 'home';
 
     const handleLogin = () => {
         loginWithRedirect();
@@ -16,7 +14,6 @@ export function Auth() {
 
     return (
         <div className={styles.host}>
-            <p>{title}</p>
             {!isAuthenticated && <button onClick={handleLogin}>Login</button>}
             {isAuthenticated && (
                 <>

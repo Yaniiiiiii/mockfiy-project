@@ -21,6 +21,6 @@ test('renders learn react link', () => {
             <App />
         </Router>
     );
-    const linkElement = screen.getByText(/HomePage/i);
+    const linkElement = screen.getByAltText(/home icon/i);
     expect(linkElement).toBeInTheDocument();
 });

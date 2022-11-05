@@ -8,7 +8,7 @@ import {
 import * as actions from '../../../infrastructure/componentes/reducers/privateReducer/action.creator';
 import { Giflist } from '../../../infrastructure/componentes/gif.list/gif.list';
 
-export function HomePage() {
+function HomePage() {
     const initialStateTrending = {
         data: [
             {
@@ -109,3 +109,5 @@ export function HomePage() {
         </div>
     );
 }
+
+export default HomePage;

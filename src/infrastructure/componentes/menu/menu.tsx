@@ -9,11 +9,16 @@ export function Menu() {
     return (
         <nav>
             <ul>
-                {menuOptions.map((item) => (
-                    <li key={item.id}>
-                        <Link to={item.path}>{item.label}</Link>
-                    </li>
-                ))}
+                <li key={menuOptions[0].id}>
+                    <Link to={menuOptions[0].path}>
+                        <img src="/assets/home.png" alt="home icon" />
+                    </Link>
+                </li>
+                <li key={menuOptions[2].id}>
+                    <Link to={menuOptions[2].path}>
+                        <img src="/assets/fav.png" alt="fav icon" />
+                    </Link>
+                </li>
             </ul>
         </nav>
     );

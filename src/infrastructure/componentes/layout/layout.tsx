@@ -1,9 +1,9 @@
-import { Menu } from '../menu/menu';
+import Footer from '../footer/footer';
 
 export function Layout({ children }: { children: JSX.Element }) {
     return (
         <div>
-            <Menu></Menu>
+            <Footer></Footer>
             {children}
         </div>
     );
