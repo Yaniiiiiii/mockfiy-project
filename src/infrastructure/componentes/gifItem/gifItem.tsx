@@ -38,7 +38,7 @@ export function GifItem({ item }: { item: IElementData }) {
 
             {location === '/Fav' && isAuthenticated && (
                 <button
-                    className={`♡`}
+                    className={`🗑`}
                     onClick={handleClickDelete}
                     style={{ width: '150px', height: '50px', fontSize: '2rem' }}
                 >
