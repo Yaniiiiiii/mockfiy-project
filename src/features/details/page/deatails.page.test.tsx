@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter as Router } from 'react-router-dom';
-import { DetailsPage } from './details.page';
+import DetailsPage from './details.page';
 
 describe('Given details.page Component', () => {
     describe('When we render the component', () => {

@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter as Router } from 'react-router-dom';
-import { HomePage } from './home.page';
+import HomePage from './home.page';
 
 describe('Given home.page Component', () => {
     describe('When we render the component', () => {

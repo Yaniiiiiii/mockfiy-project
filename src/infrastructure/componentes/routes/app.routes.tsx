@@ -1,27 +1,36 @@
-import { Navigate, Route, Routes } from 'react-router-dom';
-import { DetailsPage } from '../../../features/details/page/details.page';
-import { FavPage } from '../../../features/favorite/fav.page';
-import { HomePage } from '../../../features/home/page/home.page';
 import { PrivateRoute } from '../private.route/private.route';
+import { Navigate, Route, Routes } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
+import DetailsPage from '../../../features/details/page/details.page';
+const HomePage = lazy(() => import('../../../features/home/page/home.page'));
+const FavPage = lazy(() => import('../../../features/favorite/fav.page'));
 
 export function AppRoutes() {
     return (
-        <Routes>
-            <Route path="" element={<HomePage></HomePage>}></Route>
-            <Route
-                path={`/Details/:id`}
-                element={<DetailsPage></DetailsPage>}
-            ></Route>
+        <Suspense
+            fallback={
+                <div>
+                    <h2>LOADING...</h2>
+                </div>
+            }
+        >
+            <Routes>
+                <Route path="" element={<HomePage></HomePage>}></Route>
+                <Route
+                    path={`/Details/:id`}
+                    element={<DetailsPage></DetailsPage>}
+                ></Route>
 
-            <Route
-                path="/Fav"
-                element={
-                    <PrivateRoute>
-                        <FavPage></FavPage>
-                    </PrivateRoute>
-                }
-            ></Route>
-            <Route path="*" element={<Navigate replace to="" />}></Route>
-        </Routes>
+                <Route
+                    path="/Fav"
+                    element={
+                        <PrivateRoute>
+                            <FavPage></FavPage>
+                        </PrivateRoute>
+                    }
+                ></Route>
+                <Route path="*" element={<Navigate replace to="" />}></Route>
+            </Routes>
+        </Suspense>
     );
 }

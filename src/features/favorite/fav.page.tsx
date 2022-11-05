@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { Giflist } from '../../infrastructure/componentes/gif.list/gif.list';
 import { GifContext } from '../../infrastructure/context/context';
 
-export function FavPage() {
+function FavPage() {
     const { localGif } = useContext(GifContext);
 
     return (
@@ -12,3 +12,4 @@ export function FavPage() {
         </div>
     );
 }
+export default FavPage;

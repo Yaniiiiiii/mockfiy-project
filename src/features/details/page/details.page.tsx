@@ -9,7 +9,7 @@ import {
     getSearchData,
 } from '../../../infrastructure/services/gifs.api';
 
-export function DetailsPage() {
+function DetailsPage() {
     const { id } = useParams();
 
     const initialStateDetails = {
@@ -73,3 +73,4 @@ export function DetailsPage() {
         </div>
     );
 }
+export default DetailsPage;

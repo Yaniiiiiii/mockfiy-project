@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter as Router } from 'react-router-dom';
-import { FavPage } from './fav.page';
+import FavPage from './fav.page';
 
 describe('Given the fav page component', () => {
     describe('When we render it', () => {
