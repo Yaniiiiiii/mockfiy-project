@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { IGifsData } from '../../../infrastructure/models/data';
 
 import { getGifById } from '../../../infrastructure/services/gifs.api';
 
@@ -33,7 +32,6 @@ export function DetailsPage() {
             });
         }
     }, [id]);
-    console.log(gifDetails);
 
     return (
         <div className="details">

@@ -1,9 +1,11 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { GifContext } from '../../context/context';
 import { IElementData } from '../../models/data';
+import { useAuth0 } from '@auth0/auth0-react';
 
 export function GifItem({ item }: { item: IElementData }) {
+    const { isAuthenticated } = useAuth0();
     const { handleAdd, handleEraser } = useContext(GifContext);
     const location = window.location.pathname;
 
@@ -23,14 +25,18 @@ export function GifItem({ item }: { item: IElementData }) {
                     alt={`gif ${item.title}`}
                 ></img>
             </Link>
-            <button
-                className={`♡`}
-                onClick={handleClickAdd}
-                style={{ width: '150px', height: '50px', fontSize: '2rem' }}
-            >
-                ♡
-            </button>
-            {location === '/Fav' && (
+
+            {isAuthenticated && (
+                <button
+                    className={`♡`}
+                    onClick={handleClickAdd}
+                    style={{ width: '150px', height: '50px', fontSize: '2rem' }}
+                >
+                    ♡
+                </button>
+            )}
+
+            {location === '/Fav' && isAuthenticated && (
                 <button
                     className={`♡`}
                     onClick={handleClickDelete}

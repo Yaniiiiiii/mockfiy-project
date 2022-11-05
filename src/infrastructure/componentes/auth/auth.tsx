@@ -3,7 +3,6 @@ import styles from './auth.module.css';
 
 export function Auth() {
     const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
-    console.log({ isAuthenticated });
     const title = 'home';
 
     const handleLogin = () => {
