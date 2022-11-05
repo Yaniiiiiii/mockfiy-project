@@ -10,7 +10,7 @@ describe('Given AppRoutes component', () => {
                     <AppRoutes />
                 </Router>
             );
-            expect(screen.getByText('Home')).toBeInTheDocument();
+            expect(screen.getByText(/loading/i)).toBeInTheDocument();
         });
     });
 
