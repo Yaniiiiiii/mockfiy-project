@@ -34,9 +34,7 @@ describe('Given the context GitContext', () => {
                     <TestComponent></TestComponent>
                 </GifContext.Provider>
             );
-            const element = screen.getByText(
-                initialContext.localGif[0].title as string
-            );
+            const element = screen.getByText(initialContext.localGif[0].title);
             expect(element).toBeInTheDocument();
         });
     });
