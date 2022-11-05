@@ -16,15 +16,13 @@ export function localReducer(state: IElementData[], action: localAction) {
 
         case localActionTypes.update:
             payload = action.payload as IElementData;
-            return (state as IElementData[]).map((item: IElementData) =>
+            return state.map((item: IElementData) =>
                 item.id === payload.id ? payload : item
             );
 
         case localActionTypes.delete:
             payload = action.payload as IElementData;
-            return (state as IElementData[]).filter(
-                (item: IElementData) => item.id !== payload.id
-            );
+            return state.filter((item: IElementData) => item.id !== payload.id);
 
         default:
             return [...state];

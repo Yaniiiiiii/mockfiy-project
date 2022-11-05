@@ -20,9 +20,7 @@ describe('Given PrivateRoute component', () => {
             );
         });
         test('Then it should display the title', () => {
-            const title = new RegExp('PrivateRoute', 'i');
-            const element = screen.getByText(title);
-            expect(element).toBeInTheDocument();
+            expect(screen.getByText('PrivateRoute')).toBeInTheDocument();
         });
     });
 });
