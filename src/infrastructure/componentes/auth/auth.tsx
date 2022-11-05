@@ -15,7 +15,6 @@ export function Auth() {
 
     return (
         <div className={styles.host}>
-            <p>{title}</p>
             {!isAuthenticated && <button onClick={handleLogin}>Login</button>}
             {isAuthenticated && (
                 <>
