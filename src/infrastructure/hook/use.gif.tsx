@@ -12,7 +12,6 @@ import {
 
 export function useLocalGif() {
     const initialState: Array<IElementData> = [];
-
     const [localGif, dispatch] = useReducer(localReducer, initialState);
 
     const handleLoad = useCallback(() => {
@@ -32,12 +31,14 @@ export function useLocalGif() {
             if (response.ok) {
                 dispatch(actions.deleteLocalGifAction(gif));
             }
+            handleLoad();
         });
     };
 
     const handleUpdate = (updateGif: IElementData) => {
         updateLocalData(updateGif.id, updateGif).then((localGif) => {
             dispatch(actions.updateLocalGifAction(localGif));
+            handleLoad();
         });
     };
 
