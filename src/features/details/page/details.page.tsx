@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import { Giflist } from '../../../infrastructure/componentes/gif.list/gif.list';
 import * as actions from '../../../infrastructure/componentes/reducers/privateReducer/action.creator';
 import { gifReducer } from '../../../infrastructure/componentes/reducers/privateReducer/reducer';
-import { IElementData } from '../../../infrastructure/models/data';
 
 import {
     getGifById,
