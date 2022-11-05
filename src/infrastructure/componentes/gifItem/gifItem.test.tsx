@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
-import { GifItem } from './gifItem';
 import { MemoryRouter as Router } from 'react-router-dom';
+import { GifItem } from './gifItem';
 import { useAuth0 } from '@auth0/auth0-react';
 jest.mock('@auth0/auth0-react');
 
@@ -22,8 +22,6 @@ describe('Given the gifItem component in Home Page', () => {
                     },
                 },
             };
-
-            window.location.pathname = '/Home';
 
             (useAuth0 as jest.Mock).mockReturnValue({
                 isAuthenticated: false,

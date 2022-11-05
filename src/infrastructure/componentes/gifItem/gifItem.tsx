@@ -1,21 +1,13 @@
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
-import { GifContext } from '../../context/context';
 import { IElementData } from '../../models/data';
 import { useAuth0 } from '@auth0/auth0-react';
+import { ButtonAdd } from '../buttons/button.add/button.add';
+import { ButtonDelete } from '../buttons/button.delete/button.delete';
 
 export function GifItem({ item }: { item: IElementData }) {
     const { isAuthenticated } = useAuth0();
-    const { handleAdd, handleEraser } = useContext(GifContext);
+
     const location = window.location.pathname;
-
-    const handleClickAdd = () => {
-        handleAdd(item);
-    };
-
-    const handleClickDelete = () => {
-        handleEraser(item);
-    };
 
     return (
         <li>
@@ -26,24 +18,10 @@ export function GifItem({ item }: { item: IElementData }) {
                 ></img>
             </Link>
 
-            {isAuthenticated && (
-                <button
-                    className={`♡`}
-                    onClick={handleClickAdd}
-                    style={{ width: '150px', height: '50px', fontSize: '2rem' }}
-                >
-                    ♡
-                </button>
-            )}
+            {isAuthenticated && <ButtonAdd item={item} />}
 
             {location === '/Fav' && isAuthenticated && (
-                <button
-                    className={`🗑`}
-                    onClick={handleClickDelete}
-                    style={{ width: '150px', height: '50px', fontSize: '2rem' }}
-                >
-                    🗑
-                </button>
+                <ButtonDelete item={item} />
             )}
         </li>
     );
