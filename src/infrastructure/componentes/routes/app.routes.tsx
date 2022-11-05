@@ -11,6 +11,7 @@ export function AppRoutes() {
             fallback={
                 <div>
                     <h2>LOADING...</h2>
+                    <img src="/assets/spinner.gif" alt="" />
                 </div>
             }
         >
