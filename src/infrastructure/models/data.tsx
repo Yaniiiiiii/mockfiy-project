@@ -11,6 +11,7 @@ export type IGifsIdData = {
 export type IElementData = {
     title: string;
     id: string;
+    rating: string;
     images: IImages;
 };
 

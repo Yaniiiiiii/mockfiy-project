@@ -17,6 +17,7 @@ function HomePage() {
             {
                 id: '',
                 title: ``,
+                rating: '',
                 images: {
                     downsized: {
                         url: '',
@@ -39,6 +40,7 @@ function HomePage() {
             {
                 id: '',
                 title: ``,
+                rating: '',
                 images: {
                     downsized: {
                         url: '',

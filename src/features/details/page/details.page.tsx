@@ -35,6 +35,7 @@ function DetailsPage() {
             {
                 id: '',
                 title: ``,
+                rating: '',
                 images: {
                     downsized: {
                         url: '',

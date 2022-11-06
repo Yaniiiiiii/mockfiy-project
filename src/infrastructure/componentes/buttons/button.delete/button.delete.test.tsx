@@ -11,6 +11,7 @@ describe('Given the button add component', () => {
                         item={{
                             title: '',
                             id: '',
+                            rating: '',
                             images: {
                                 downsized: {
                                     url: '',

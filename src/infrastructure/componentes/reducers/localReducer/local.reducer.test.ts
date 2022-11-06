@@ -6,6 +6,7 @@ const mockGif = [
     {
         title: 'test',
         id: `test`,
+        rating: '',
         images: {
             downsized: {
                 url: 'test',
@@ -16,6 +17,7 @@ const mockGif = [
 export const mockGifTestApi = {
     title: 'Luis',
     id: `Best`,
+    rating: '',
     images: {
         downsized: {
             url: 'Api',

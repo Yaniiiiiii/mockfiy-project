@@ -20,6 +20,7 @@ describe('Given the gifs.local.api component', () => {
             const mockGift = {
                 title: '',
                 id: '',
+                rating: '',
                 images: {
                     downsized: {
                         url: '',
@@ -49,6 +50,7 @@ describe('Given the gifs.local.api component', () => {
             });
             const result = await updateLocalData('1', {
                 title: '',
+                rating: '',
                 id: 'TEST',
                 images: {
                     downsized: {
