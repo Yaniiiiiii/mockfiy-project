@@ -96,24 +96,28 @@ function HomePage() {
                     {form.search === '' ? (
                         <>
                             <Giflist data={trending.data}></Giflist>
-                            {id !== '0' && (
+                            <div className="arrows-home">
+                                {id !== '0' && (
+                                    <Link
+                                        className="link"
+                                        to={`/Home/${+(id as string) - 50}`}
+                                        onClick={() => {
+                                            window.scrollTo(0, 0);
+                                        }}
+                                    >
+                                        {`⬅️`}
+                                    </Link>
+                                )}
                                 <Link
-                                    to={`/Home/${+(id as string) - 50}`}
+                                    className="link"
+                                    to={`/Home/${+(id as string) + 50}`}
                                     onClick={() => {
                                         window.scrollTo(0, 0);
                                     }}
                                 >
-                                    {`<-`}
+                                    {`➡️`}
                                 </Link>
-                            )}
-                            <Link
-                                to={`/Home/${+(id as string) + 50}`}
-                                onClick={() => {
-                                    window.scrollTo(0, 0);
-                                }}
-                            >
-                                {`->`}
-                            </Link>
+                            </div>
                         </>
                     ) : (
                         <>

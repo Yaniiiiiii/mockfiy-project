@@ -6,6 +6,7 @@
 
 h1 {
     font-size: 4rem;
+    text-align: center;
 }
 
 .app {
@@ -73,8 +74,8 @@ ul li button:hover {
 }
 
 div.favorite {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    min-height: 100vh;
 }
 
 .img--details {
@@ -86,11 +87,14 @@ div.favorite {
     align-items: center;
 }
 
+.img--details h2 {
+    padding: 16px;
+}
+
 .img--details img {
-    width: 500px;
-    height: 500px;
+    width: 300px;
+    height: 300px;
     object-fit: cover;
-    margin-top: 75px;
     border-radius: 10px;
 }
 
@@ -112,11 +116,10 @@ div.favorite {
     background-color: rgba(245, 245, 245, 0.562);
 }
 
-.list--container li {
+li {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-bottom: -64px;
 }
 
 ul {
@@ -163,6 +166,20 @@ div.auth_host__ziRyi {
     display: flex;
     justify-content: flex-end;
     margin: 8px -17%;
+}
+
+div.arrows-home {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    margin: -107px 35px;
+    padding: 84px;
+    gap: 21%;
+}
+
+.link {
+    font-size: 4rem;
+    text-decoration: none;
 }
 
 .auth_host__ziRyi button {
