@@ -1,11 +1,7 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import {
-    BrowserRouter,
-    MemoryRouter as Router,
-    Navigate,
-} from 'react-router-dom';
+import { MemoryRouter as Router, Navigate } from 'react-router-dom';
 import { PrivateRoute } from '../private.route/private.route';
 import { Auth } from './auth';
 
