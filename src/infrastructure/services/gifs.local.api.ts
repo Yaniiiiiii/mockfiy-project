@@ -3,7 +3,11 @@ import { IElementData } from '../models/data';
 export const getLocalData = async (): Promise<Array<IElementData>> => {
     const url = 'http://localhost:3500/data';
     const result = await fetch(url).then((response) => {
-        return response.json();
+        if (response.ok) return response.json();
+        const message = `Error ${response.status}: ${response.statusText}`;
+        const error = new Error(message);
+        error.name = 'HTTPError';
+        throw error;
     });
     return result;
 };
@@ -18,8 +22,13 @@ export const createLocalData = async (
         headers: {
             'content-type': 'application/json',
         },
-    }).then((response) => response.json());
-
+    }).then((response) => {
+        if (response.ok) return response.json();
+        const message = `Error ${response.status}: ${response.statusText}`;
+        const error = new Error(message);
+        error.name = 'HTTPError';
+        throw error;
+    });
     return result;
 };
 
@@ -27,8 +36,13 @@ export const deleteLocalData = async (id: string) => {
     const url = `http://localhost:3500/data/${id}`;
     const result = await fetch(url, {
         method: 'DELETE',
-    }).then((response) => response.json());
-
+    }).then((response) => {
+        if (response.ok) return response.json();
+        const message = `Error ${response.status}: ${response.statusText}`;
+        const error = new Error(message);
+        error.name = 'HTTPError';
+        throw error;
+    });
     return result;
 };
 
@@ -43,6 +57,12 @@ export const updateLocalData = async (
         headers: {
             'content-type': 'application/json',
         },
-    }).then((response) => response.json());
+    }).then((response) => {
+        if (response.ok) return response.json();
+        const message = `Error ${response.status}: ${response.statusText}`;
+        const error = new Error(message);
+        error.name = 'HTTPError';
+        throw error;
+    });
     return result;
 };
