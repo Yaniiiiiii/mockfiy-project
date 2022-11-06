@@ -2,6 +2,7 @@ import { Auth0Provider } from '@auth0/auth0-react';
 import { GifContextProvider } from '../../context/provider';
 import { Layout } from '../layout/layout';
 import { AppRoutes } from '../routes/app.routes';
+import './app.css';
 
 export function App() {
     return (

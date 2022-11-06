@@ -9,12 +9,8 @@ export function ButtonDelete({ item }: { item: IElementData }) {
     };
 
     return (
-        <button
-            className={`🗑`}
-            onClick={handleClickDelete}
-            style={{ width: '150px', height: '50px', fontSize: '2rem' }}
-        >
-            🗑
+        <button className={`🗑`} onClick={handleClickDelete}>
+            🧻
         </button>
     );
 }

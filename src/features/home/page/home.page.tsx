@@ -80,26 +80,18 @@ function HomePage() {
 
     return (
         <div className="home">
-            <Header title="MOCKIPHY" />
+            <Header title="🥸 MOCKIPHY" />
             <Auth></Auth>
-            <form
-                style={{
-                    display: 'flex',
-                    alignItems: ' center',
-                    justifyContent: 'center',
-                    margin: '10px',
-                }}
-            >
+            <form>
                 <input
                     type="text"
                     placeholder="Search"
                     name="search"
                     value={form.search}
                     onInput={handleForm}
-                    style={{ width: '300px', height: '50px', fontSize: '2rem' }}
                 />
             </form>
-            <div>
+            <div className="list--container">
                 <>
                     {form.search === '' ? (
                         <>

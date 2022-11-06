@@ -66,12 +66,17 @@ function DetailsPage() {
         <>
             <div className="details">
                 <Header title="Details" />
-                <img
-                    src={gifDetails.data.images.downsized.url}
-                    alt={`${gifDetails.data.title} gif`}
-                />
+                <div className="img--details">
+                    <h2>{gifDetails.data.title}</h2>
+                    <img
+                        src={gifDetails.data.images.downsized.url}
+                        alt={`${gifDetails.data.title} gif`}
+                    />
+                </div>
 
-                <h2>Related</h2>
+                <div className="related-giifs">
+                    <h2>Related Gifs</h2>
+                </div>
                 <Giflist data={search.data}></Giflist>
             </div>
         </>
