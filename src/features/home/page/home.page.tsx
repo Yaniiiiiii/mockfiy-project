@@ -67,7 +67,7 @@ function HomePage() {
             searchDispatch(actions.loadGifAction(resps));
         });
 
-        getDataTrending().then((resps) => {
+        getDataTrending(0).then((resps) => {
             trendingDispatch(actions.loadGifAction(resps));
         });
     }, [form.search]);
