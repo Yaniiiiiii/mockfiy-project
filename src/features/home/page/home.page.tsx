@@ -7,7 +7,6 @@ import {
 } from '../../../infrastructure/services/gifs.api';
 import * as actions from '../../../infrastructure/componentes/reducers/privateReducer/action.creator';
 import { Giflist } from '../../../infrastructure/componentes/gif.list/gif.list';
-import InfiniteScroll from 'react-infinite-scroll-component';
 import { Link, useParams } from 'react-router-dom';
 
 function HomePage() {

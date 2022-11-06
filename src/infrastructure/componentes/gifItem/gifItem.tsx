@@ -3,6 +3,7 @@ import { IElementData } from '../../models/data';
 import { useAuth0 } from '@auth0/auth0-react';
 import { ButtonAdd } from '../buttons/button.add/button.add';
 import { ButtonDelete } from '../buttons/button.delete/button.delete';
+import { ButtonSuper } from '../buttons/button.super/button.super';
 
 export function GifItem({ item }: { item: IElementData }) {
     const { isAuthenticated } = useAuth0();
@@ -11,6 +12,7 @@ export function GifItem({ item }: { item: IElementData }) {
 
     return (
         <li>
+            {item.rating === 'SUPER' && <h1>⭐</h1>}
             <Link
                 to={`/Details/${item.id}`}
                 onClick={() => {
@@ -28,7 +30,10 @@ export function GifItem({ item }: { item: IElementData }) {
             )}
 
             {location === '/Fav' && isAuthenticated && (
-                <ButtonDelete item={item} />
+                <>
+                    <ButtonDelete item={item} />
+                    <ButtonSuper item={item}></ButtonSuper>
+                </>
             )}
         </li>
     );
