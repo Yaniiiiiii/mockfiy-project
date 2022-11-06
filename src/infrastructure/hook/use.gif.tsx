@@ -25,40 +25,25 @@ export function useLocalGif() {
     }, []);
 
     const handleAdd = (newGif: IElementData) => {
-        createLocalData(newGif)
-            .then((localGif: IElementData) =>
-                dispatch(actions.addLocalGifAction(localGif))
-            )
-            .catch((error: Error) => {
-                console.log(error.message);
-                setHasError(true);
-            });
+        createLocalData(newGif).then((localGif: IElementData) =>
+            dispatch(actions.addLocalGifAction(localGif))
+        );
     };
 
     const handleEraser = (gif: IElementData) => {
-        deleteLocalData(gif.id)
-            .then((response) => {
-                if (response.ok) {
-                    dispatch(actions.deleteLocalGifAction(gif));
-                }
-                handleLoad();
-            })
-            .catch((error: Error) => {
-                console.log(error.message);
-                setHasError(true);
-            });
+        deleteLocalData(gif.id).then((response) => {
+            if (response.ok) {
+                dispatch(actions.deleteLocalGifAction(gif));
+            }
+            handleLoad();
+        });
     };
 
     const handleUpdate = (updateGif: IElementData) => {
-        updateLocalData(updateGif.id, updateGif)
-            .then((localGif) => {
-                dispatch(actions.updateLocalGifAction(localGif));
-                handleLoad();
-            })
-            .catch((error: Error) => {
-                console.log(error.message);
-                setHasError(true);
-            });
+        updateLocalData(updateGif.id, updateGif).then((localGif) => {
+            dispatch(actions.updateLocalGifAction(localGif));
+            handleLoad();
+        });
     };
 
     useEffect(() => {

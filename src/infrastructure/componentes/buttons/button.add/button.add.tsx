@@ -9,12 +9,14 @@ export function ButtonAdd({ item }: { item: IElementData }) {
     };
 
     return (
-        <button
-            className={`♡`}
-            onClick={handleClickAdd}
-            style={{ width: '150px', height: '50px', fontSize: '2rem' }}
-        >
-            ♡
-        </button>
+        <section>
+            <button
+                className={`♡`}
+                onClick={handleClickAdd}
+                style={{ width: '150px', height: '50px', fontSize: '2rem' }}
+            >
+                ♡
+            </button>
+        </section>
     );
 }
