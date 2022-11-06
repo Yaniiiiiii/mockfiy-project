@@ -4,9 +4,12 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { ButtonAdd } from '../buttons/button.add/button.add';
 import { ButtonDelete } from '../buttons/button.delete/button.delete';
 import { ButtonSuper } from '../buttons/button.super/button.super';
+import { useContext } from 'react';
+import { GifContext } from '../../context/context';
 
 export function GifItem({ item }: { item: IElementData }) {
     const { isAuthenticated } = useAuth0();
+    const { hasError } = useContext(GifContext);
 
     const location = window.location.pathname;
 
@@ -25,7 +28,7 @@ export function GifItem({ item }: { item: IElementData }) {
                 ></img>
             </Link>
 
-            {isAuthenticated && location !== '/Fav' && (
+            {isAuthenticated && location !== '/Fav' && !hasError && (
                 <ButtonAdd item={item} />
             )}
 

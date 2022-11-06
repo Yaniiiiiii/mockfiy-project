@@ -31,6 +31,7 @@ describe('Given the custom hook "useGif" component', () => {
     let result: {
         current: {
             localGif: IElementData[];
+            hasError: boolean;
             handleAdd: (newGif: IElementData) => void;
             handleEraser: (gif: IElementData) => void;
             handleUpdate: (updateGif: IElementData) => void;

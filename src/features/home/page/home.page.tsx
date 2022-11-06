@@ -8,6 +8,7 @@ import {
 import * as actions from '../../../infrastructure/componentes/reducers/privateReducer/action.creator';
 import { Giflist } from '../../../infrastructure/componentes/gif.list/gif.list';
 import { Link, useParams } from 'react-router-dom';
+import { Header } from '../../../infrastructure/componentes/header/header';
 
 function HomePage() {
     const { id } = useParams();
@@ -79,7 +80,7 @@ function HomePage() {
 
     return (
         <div className="home">
-            <h1>Home</h1>
+            <Header title="MOCKIPHY" />
             <Auth></Auth>
             <form
                 style={{

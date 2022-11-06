@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useReducer } from 'react';
+import { useCallback, useEffect, useReducer, useState } from 'react';
 import * as actions from '../componentes/reducers/localReducer/local.action.creator';
 import { localReducer } from '../componentes/reducers/localReducer/local.reducer';
 import { IElementData } from '../models/data';
@@ -13,11 +13,15 @@ import {
 export function useLocalGif() {
     const initialState: Array<IElementData> = [];
     const [localGif, dispatch] = useReducer(localReducer, initialState);
+    const [hasError, setHasError] = useState(false);
 
     const handleLoad = useCallback(() => {
-        getLocalData().then((response) =>
-            dispatch(actions.loadLocalGifAction(response))
-        );
+        getLocalData()
+            .then((response) => dispatch(actions.loadLocalGifAction(response)))
+            .catch((error: Error) => {
+                console.log(error.message);
+                setHasError(true);
+            });
     }, []);
 
     const handleAdd = (newGif: IElementData) => {
@@ -48,6 +52,7 @@ export function useLocalGif() {
 
     return {
         localGif,
+        hasError,
         handleAdd,
         handleEraser,
         handleUpdate,
