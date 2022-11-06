@@ -65,9 +65,7 @@ function DetailsPage() {
     return (
         <>
             <div className="details">
-                <h1>
-                    <Header title="Details" />
-                </h1>
+                <Header title="Details" />
                 <img
                     src={gifDetails.data.images.downsized.url}
                     alt={`${gifDetails.data.title} gif`}

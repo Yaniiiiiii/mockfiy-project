@@ -14,7 +14,7 @@ describe('Given details.page Component', () => {
 
         test('Then it should render the "Details" h1', () => {
             expect(
-                screen.getByRole('heading', { name: /Details/i })
+                screen.getByRole('heading', { name: 'Details' })
             ).toBeInTheDocument();
         });
 

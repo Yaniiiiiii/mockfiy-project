@@ -9,9 +9,7 @@ function FavPage() {
     return (
         <>
             <div className="favorite">
-                <h1>
-                    <Header title="My favorite GIFs" />
-                </h1>
+                <Header title="My favorite GIFs" />
                 <Giflist data={localGif}></Giflist>
             </div>
         </>

@@ -19,7 +19,7 @@ const gif1: IElementData = {
 const newGif: IElementData = {
     id: 'test',
     title: 'test',
-    rating: '',
+    rating: 'test',
     images: {
         downsized: {
             url: 'test',

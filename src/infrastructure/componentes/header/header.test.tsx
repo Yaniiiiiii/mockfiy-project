@@ -8,7 +8,7 @@ describe('When using the header" component', () => {
                     <h1>test</h1>
                 </header>
             );
-            expect(screen.getByText('Test')).toBeInTheDocument();
+            expect(screen.getByText('test')).toBeInTheDocument();
         });
     });
 });

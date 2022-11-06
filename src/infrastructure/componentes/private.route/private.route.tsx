@@ -6,6 +6,6 @@ export function PrivateRoute({ children }: { children: JSX.Element }) {
     return isAuthenticated ? (
         children
     ) : (
-        <Navigate to="HomePage" replace={true} />
+        <Navigate to="/Home/0" replace={true} />
     );
 }

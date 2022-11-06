@@ -231,12 +231,6 @@ describe('Given the gifItem component in Fav Page', () => {
             expect(screen.getByAltText(/test/i)).toBeInTheDocument();
         });
 
-        test('then it should display the add button', () => {
-            expect(
-                screen.getByRole('button', { name: /♡/i })
-            ).toBeInTheDocument();
-        });
-
         test('then it should display the delete button', () => {
             expect(
                 screen.getByRole('button', { name: /🗑/i })

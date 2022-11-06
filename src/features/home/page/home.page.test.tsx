@@ -14,7 +14,7 @@ describe('Given home.page Component', () => {
 
         test('Then it should render the "Home" h1', () => {
             expect(
-                screen.getByRole('heading', { name: /Home/i })
+                screen.getByRole('heading', { name: /MOCKIPHY/i })
             ).toBeInTheDocument();
         });
 
@@ -34,7 +34,7 @@ describe('Given home.page Component', () => {
 
         test('Then it should render the "Home" h1', () => {
             expect(
-                screen.getByRole('heading', { name: /Home/i })
+                screen.getByRole('heading', { name: /MOCKIPHY/i })
             ).toBeInTheDocument();
         });
 

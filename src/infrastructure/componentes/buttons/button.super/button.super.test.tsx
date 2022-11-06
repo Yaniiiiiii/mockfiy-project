@@ -5,7 +5,7 @@ import { MemoryRouter as Router } from 'react-router-dom';
 import { useLocalGif } from '../../../hook/use.gif';
 import { IElementData } from '../../../models/data';
 import { GifContext } from '../../../context/context';
-import { ButtonDelete } from './button.delete';
+import { ButtonSuper } from './button.super';
 jest.mock('@auth0/auth0-react');
 jest.mock('../../../hook/use.gif');
 
@@ -57,7 +57,7 @@ describe('Given the button add component', () => {
             render(
                 <Router>
                     <GifContext.Provider value={context}>
-                        <ButtonDelete item={mockItem} />
+                        <ButtonSuper item={mockItem} />
                     </GifContext.Provider>
                 </Router>
             );
@@ -67,7 +67,7 @@ describe('Given the button add component', () => {
             expect(element).toBeInTheDocument();
 
             userEvent.click(element);
-            expect(context.handleEraser).toHaveBeenCalled();
+            expect(context.handleUpdate).toHaveBeenCalled();
         });
     });
 });
