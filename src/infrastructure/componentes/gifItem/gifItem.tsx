@@ -11,14 +11,21 @@ export function GifItem({ item }: { item: IElementData }) {
 
     return (
         <li>
-            <Link to={`/Details/${item.id}`}>
+            <Link
+                to={`/Details/${item.id}`}
+                onClick={() => {
+                    window.scrollTo(0, 0);
+                }}
+            >
                 <img
                     src={item.images.downsized.url}
                     alt={`gif ${item.title}`}
                 ></img>
             </Link>
 
-            {isAuthenticated && <ButtonAdd item={item} />}
+            {isAuthenticated && location !== '/Fav' && (
+                <ButtonAdd item={item} />
+            )}
 
             {location === '/Fav' && isAuthenticated && (
                 <ButtonDelete item={item} />

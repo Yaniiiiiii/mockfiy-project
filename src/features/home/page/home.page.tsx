@@ -7,8 +7,11 @@ import {
 } from '../../../infrastructure/services/gifs.api';
 import * as actions from '../../../infrastructure/componentes/reducers/privateReducer/action.creator';
 import { Giflist } from '../../../infrastructure/componentes/gif.list/gif.list';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import { Link, useParams } from 'react-router-dom';
 
 function HomePage() {
+    const { id } = useParams();
     const initialStateTrending = {
         data: [
             {
@@ -67,11 +70,12 @@ function HomePage() {
             searchDispatch(actions.loadGifAction(resps));
         });
 
-        getDataTrending(0).then((resps) => {
+        getDataTrending(+(id as string)).then((resps) => {
             trendingDispatch(actions.loadGifAction(resps));
         });
-    }, [form.search]);
+    }, [form.search, id]);
     // ----------------------------------------------------------------
+
     return (
         <div className="home">
             <h1>Home</h1>
@@ -97,7 +101,25 @@ function HomePage() {
                 <>
                     {form.search === '' ? (
                         <>
-                            <Giflist data={trending.data}></Giflist>{' '}
+                            <Giflist data={trending.data}></Giflist>
+                            {id !== '0' && (
+                                <Link
+                                    to={`/Home/${+(id as string) - 50}`}
+                                    onClick={() => {
+                                        window.scrollTo(0, 0);
+                                    }}
+                                >
+                                    {`<-`}
+                                </Link>
+                            )}
+                            <Link
+                                to={`/Home/${+(id as string) + 50}`}
+                                onClick={() => {
+                                    window.scrollTo(0, 0);
+                                }}
+                            >
+                                {`->`}
+                            </Link>
                         </>
                     ) : (
                         <>
