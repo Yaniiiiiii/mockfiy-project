@@ -80,48 +80,44 @@ function HomePage() {
 
     return (
         <div className="home">
-            <Header title="MOCKIPHY" />
+            <Header title="🥸 MOCKIPHY" />
             <Auth></Auth>
-            <form
-                style={{
-                    display: 'flex',
-                    alignItems: ' center',
-                    justifyContent: 'center',
-                    margin: '10px',
-                }}
-            >
+            <form>
                 <input
                     type="text"
                     placeholder="Search"
                     name="search"
                     value={form.search}
                     onInput={handleForm}
-                    style={{ width: '300px', height: '50px', fontSize: '2rem' }}
                 />
             </form>
-            <div>
+            <div className="list--container">
                 <>
                     {form.search === '' ? (
                         <>
                             <Giflist data={trending.data}></Giflist>
-                            {id !== '0' && (
+                            <div className="arrows-home">
+                                {id !== '0' && (
+                                    <Link
+                                        className="link"
+                                        to={`/Home/${+(id as string) - 50}`}
+                                        onClick={() => {
+                                            window.scrollTo(0, 0);
+                                        }}
+                                    >
+                                        {`⬅️`}
+                                    </Link>
+                                )}
                                 <Link
-                                    to={`/Home/${+(id as string) - 50}`}
+                                    className="link"
+                                    to={`/Home/${+(id as string) + 50}`}
                                     onClick={() => {
                                         window.scrollTo(0, 0);
                                     }}
                                 >
-                                    {`<-`}
+                                    {`➡️`}
                                 </Link>
-                            )}
-                            <Link
-                                to={`/Home/${+(id as string) + 50}`}
-                                onClick={() => {
-                                    window.scrollTo(0, 0);
-                                }}
-                            >
-                                {`->`}
-                            </Link>
+                            </div>
                         </>
                     ) : (
                         <>

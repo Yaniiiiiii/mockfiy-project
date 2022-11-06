@@ -15,11 +15,6 @@ export function Auth() {
             {!isAuthenticated && <button onClick={handleLogin}>Login</button>}
             {isAuthenticated && (
                 <>
-                    <div>
-                        <img src={user?.picture} alt={user?.name} />
-                        <h2>{user?.name}</h2>
-                        <p>{user?.email}</p>
-                    </div>
                     <button onClick={handleLogout}>Logout</button>
                 </>
             )}

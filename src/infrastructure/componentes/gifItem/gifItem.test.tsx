@@ -233,7 +233,7 @@ describe('Given the gifItem component in Fav Page', () => {
 
         test('then it should display the delete button', () => {
             expect(
-                screen.getByRole('button', { name: /🗑/i })
+                screen.getByRole('button', { name: /🧻/i })
             ).toBeInTheDocument();
         });
 
