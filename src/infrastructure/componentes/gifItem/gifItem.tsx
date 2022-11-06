@@ -17,12 +17,11 @@ export function GifItem({ item }: { item: IElementData }) {
                     alt={`gif ${item.title}`}
                 ></img>
             </Link>
-
             {isAuthenticated && <ButtonAdd item={item} />}
-
             {location === '/Fav' && isAuthenticated && (
                 <ButtonDelete item={item} />
             )}
+            \
         </li>
     );
 }
