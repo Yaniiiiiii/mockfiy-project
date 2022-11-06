@@ -9,6 +9,7 @@ jest.mock('../services/gifs.local.api');
 const gif1: IElementData = {
     id: 'test',
     title: 'test',
+    rating: 'test',
     images: {
         downsized: {
             url: 'test',
@@ -18,6 +19,7 @@ const gif1: IElementData = {
 const newGif: IElementData = {
     id: 'test',
     title: 'test',
+    rating: 'test',
     images: {
         downsized: {
             url: 'test',

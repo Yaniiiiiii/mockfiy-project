@@ -1,65 +1,73 @@
+import { useAuth0 } from '@auth0/auth0-react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter as Router } from 'react-router-dom';
 import { useLocalGif } from '../../../hook/use.gif';
+import { IElementData } from '../../../models/data';
 import { ButtonAdd } from './button.add';
+import { GifContext } from '../../../context/context';
+jest.mock('@auth0/auth0-react');
 jest.mock('../../../hook/use.gif');
 
 describe('Given the button add component', () => {
     describe('When we render the component', () => {
+        let mockGif: IElementData;
+        let context: {
+            localGif: IElementData[];
+            hasError: boolean;
+            handleAdd: jest.Mock;
+            handleEraser: jest.Mock;
+            handleUpdate: jest.Mock;
+        };
+
         beforeEach(() => {
+            context = {
+                localGif: [mockGif],
+                hasError: false,
+                handleAdd: jest.fn(),
+                handleEraser: jest.fn(),
+                handleUpdate: jest.fn(),
+            };
+
+            const mockItem = {
+                title: 'test',
+                id: `test`,
+                rating: '',
+                images: {
+                    downsized: {
+                        url: 'https://media4.giphy.com/media/mi6DsSSNKDbUY/giphy.gif?cid=4e847dbcoiwns7ccq97ezwn4dc6y3qt2qh6zkq5me7u36eqq&rid=giphy.gif&ct=g',
+                    },
+                },
+            };
+
             (useLocalGif as jest.Mock).mockReturnValue({
                 handleAdd: jest.fn(),
             });
 
+            (useAuth0 as jest.Mock).mockReturnValue({
+                isAuthenticated: true,
+            });
+
+            Object.defineProperty(window, 'location', {
+                value: {
+                    pathname: '/Home/0',
+                },
+            });
+
             render(
                 <Router>
-                    <ButtonAdd
-                        item={{
-                            title: '',
-                            id: '',
-                            images: {
-                                downsized: {
-                                    url: '',
-                                },
-                            },
-                        }}
-                    />
+                    <GifContext.Provider value={context}>
+                        <ButtonAdd item={mockItem} />
+                    </GifContext.Provider>
                 </Router>
             );
         });
         test('Then it should render the button', () => {
-            expect(screen.getByRole('button')).toBeInTheDocument();
-            userEvent.click(screen.getByRole('button'));
-            expect(ButtonAdd.prototype.handleAdd).toHaveBeenCalled();
+            const element = screen.getByRole('button');
+            expect(element).toBeInTheDocument();
+
+            userEvent.click(element);
+            expect(context.handleAdd).toHaveBeenCalled();
         });
     });
-
-    // No consigo hacer que funcione
-    // describe('When we click on the component', () => {
-    //     const mockItem = {
-    //         title: '',
-    //         id: '',
-    //         images: {
-    //             downsized: {
-    //                 url: '',
-    //             },
-    //         },
-    //     };
-
-    //     beforeEach(() => {
-    //         render(
-    //             <Router>
-    //                 <ButtonAdd item={mockItem} />
-    //             </Router>
-    //         );
-    //     });
-    //     test('Then it should do the handleclick function', () => {
-    //         ButtonAdd.prototype.handleClickAdd = jest.fn();
-    //         const element = screen.getByRole('button');
-    //         expect(element).toBeInTheDocument();
-    //         userEvent.click(element);
-    //         expect(handleClickAdd).toHaveBeenCalled();
-    //     });
-    // });
 });

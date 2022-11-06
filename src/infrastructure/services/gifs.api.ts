@@ -1,11 +1,14 @@
 import { IGifsData, IGifsIdData } from '../models/data';
 
-export const getDataTrending = async (): Promise<IGifsData> => {
+export const getDataTrending = async (
+    offsetNum: number
+): Promise<IGifsData> => {
     const url = 'https://api.giphy.com/v1/gifs/trending';
     const search = '?';
     const key = '&api_key=rIBXAUARqWUeHGOtglMKUSh4AZlxU5iZ';
-    const limit = '&limit=25';
-    const completeUrl = url + search + key + limit;
+    const limit = '&limit=50';
+    const offset = `&offset=${offsetNum}`;
+    const completeUrl = url + search + key + limit + offset;
 
     const result = await fetch(completeUrl).then((response) => {
         return response.json();

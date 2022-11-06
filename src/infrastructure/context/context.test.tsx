@@ -11,6 +11,7 @@ describe('Given the context GitContext', () => {
             const gif: IElementData = {
                 title: 'test',
                 id: `test`,
+                rating: '',
                 images: {
                     downsized: {
                         url: 'test',

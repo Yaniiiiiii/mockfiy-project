@@ -7,7 +7,7 @@ describe('Given the gifs api component', () => {
             global.fetch = jest
                 .fn()
                 .mockResolvedValue({ json: jest.fn().mockResolvedValue({}) });
-            const result = await getDataTrending();
+            const result = await getDataTrending(0);
             expect(fetch).toHaveBeenCalled();
             expect(result).toEqual({});
         });

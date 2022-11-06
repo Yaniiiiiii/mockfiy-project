@@ -13,7 +13,7 @@ describe('Given the fav page component', () => {
         });
         test('Then it should appear the "My favorite GIFs" header', () => {
             expect(
-                screen.getByRole('heading', { name: /my favorite GIFS/i })
+                screen.getByRole('heading', { name: /My favorite GIFs/i })
             ).toBeInTheDocument();
         });
     });

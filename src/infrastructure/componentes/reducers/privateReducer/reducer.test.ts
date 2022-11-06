@@ -9,6 +9,7 @@ describe('Given the Reducer component', () => {
                     {
                         title: ``,
                         id: ``,
+                        rating: '',
                         images: {
                             downsized: {
                                 url: '',
@@ -33,6 +34,7 @@ describe('Given the Reducer component', () => {
                     {
                         title: ``,
                         id: ``,
+                        rating: '',
                         images: {
                             downsized: {
                                 url: '',

@@ -12,24 +12,3 @@ export const loadGifAction = (gifData: IGifsData): Action => {
         payload: gifData,
     };
 };
-
-export const addGifAction = (gifData: IGifsData): Action => {
-    return {
-        type: actionTypes.add,
-        payload: gifData,
-    };
-};
-
-export const updateGifAction = (gifData: IGifsData): Action => {
-    return {
-        type: actionTypes.update,
-        payload: gifData,
-    };
-};
-
-export const deleteGifAction = (gifData: IGifsData): Action => {
-    return {
-        type: actionTypes.delete,
-        payload: gifData,
-    };
-};

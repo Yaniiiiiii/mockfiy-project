@@ -16,7 +16,10 @@ export function AppRoutes() {
             }
         >
             <Routes>
-                <Route path="" element={<HomePage></HomePage>}></Route>
+                <Route
+                    path={`/Home/:id`}
+                    element={<HomePage></HomePage>}
+                ></Route>
                 <Route
                     path={`/Details/:id`}
                     element={<DetailsPage></DetailsPage>}
@@ -30,7 +33,10 @@ export function AppRoutes() {
                         </PrivateRoute>
                     }
                 ></Route>
-                <Route path="*" element={<Navigate replace to="" />}></Route>
+                <Route
+                    path="*"
+                    element={<Navigate replace to="/Home/0" />}
+                ></Route>
             </Routes>
         </Suspense>
     );
