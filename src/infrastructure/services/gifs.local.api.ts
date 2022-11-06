@@ -3,7 +3,11 @@ import { IElementData } from '../models/data';
 export const getLocalData = async (): Promise<Array<IElementData>> => {
     const url = 'http://localhost:3500/data';
     const result = await fetch(url).then((response) => {
-        return response.json();
+        if (response.ok) return response.json();
+        const message = `Error ${response.status}: ${response.statusText}`;
+        const error = new Error(message);
+        error.name = 'HTTPError';
+        throw error;
     });
     return result;
 };
