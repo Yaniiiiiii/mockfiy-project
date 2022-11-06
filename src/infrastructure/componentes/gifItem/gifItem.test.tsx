@@ -208,7 +208,7 @@ describe('Given the gifItem component in Fav Page', () => {
             const mockItem = {
                 title: 'test',
                 id: `test`,
-                rating: '',
+                rating: 'SUPER',
                 images: {
                     downsized: {
                         url: 'https://media4.giphy.com/media/mi6DsSSNKDbUY/giphy.gif?cid=4e847dbcoiwns7ccq97ezwn4dc6y3qt2qh6zkq5me7u36eqq&rid=giphy.gif&ct=g',
@@ -234,6 +234,12 @@ describe('Given the gifItem component in Fav Page', () => {
         test('then it should display the delete button', () => {
             expect(
                 screen.getByRole('button', { name: /🗑/i })
+            ).toBeInTheDocument();
+        });
+
+        test('If item.rating is === ¨SUPER¨ then it should display a Start', () => {
+            expect(
+                screen.getByRole(`button`, { name: `⭐` })
             ).toBeInTheDocument();
         });
     });

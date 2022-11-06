@@ -29,17 +29,6 @@ describe('Given the button add component', () => {
                 handleUpdate: jest.fn(),
             };
 
-            const mockItem = {
-                title: 'test',
-                id: `test`,
-                rating: '',
-                images: {
-                    downsized: {
-                        url: 'https://media4.giphy.com/media/mi6DsSSNKDbUY/giphy.gif?cid=4e847dbcoiwns7ccq97ezwn4dc6y3qt2qh6zkq5me7u36eqq&rid=giphy.gif&ct=g',
-                    },
-                },
-            };
-
             (useLocalGif as jest.Mock).mockReturnValue({
                 handleAdd: jest.fn(),
             });
@@ -53,7 +42,19 @@ describe('Given the button add component', () => {
                     pathname: '/Home/0',
                 },
             });
+        });
 
+        test('Then it should render the button and if item.rating === ¨SUPER¨, change item.rating to ¨any¨', () => {
+            const mockItem = {
+                title: 'test',
+                id: `test`,
+                rating: 'SUPER',
+                images: {
+                    downsized: {
+                        url: 'https://media4.giphy.com/media/mi6DsSSNKDbUY/giphy.gif?cid=4e847dbcoiwns7ccq97ezwn4dc6y3qt2qh6zkq5me7u36eqq&rid=giphy.gif&ct=g',
+                    },
+                },
+            };
             render(
                 <Router>
                     <GifContext.Provider value={context}>
@@ -61,13 +62,38 @@ describe('Given the button add component', () => {
                     </GifContext.Provider>
                 </Router>
             );
-        });
-        test('Then it should render the button', () => {
             const element = screen.getByRole('button');
             expect(element).toBeInTheDocument();
 
             userEvent.click(element);
             expect(context.handleUpdate).toHaveBeenCalled();
+            expect(mockItem.rating).toBe('any');
+        });
+
+        test('Then it should render the button and if item.rating === ¨any¨, change item.rating to ¨SUPER¨', () => {
+            const mockItem = {
+                title: 'test',
+                id: `test`,
+                rating: 'any',
+                images: {
+                    downsized: {
+                        url: 'https://media4.giphy.com/media/mi6DsSSNKDbUY/giphy.gif?cid=4e847dbcoiwns7ccq97ezwn4dc6y3qt2qh6zkq5me7u36eqq&rid=giphy.gif&ct=g',
+                    },
+                },
+            };
+            render(
+                <Router>
+                    <GifContext.Provider value={context}>
+                        <ButtonSuper item={mockItem} />
+                    </GifContext.Provider>
+                </Router>
+            );
+            const element = screen.getByRole('button');
+            expect(element).toBeInTheDocument();
+
+            userEvent.click(element);
+            expect(context.handleUpdate).toHaveBeenCalled();
+            expect(mockItem.rating).toBe('SUPER');
         });
     });
 });

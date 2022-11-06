@@ -15,7 +15,7 @@ export function GifItem({ item }: { item: IElementData }) {
 
     return (
         <li>
-            {item.rating === 'SUPER' && <h1>⭐</h1>}
+            {item.rating === 'SUPER' && <h1 className="Start">⭐</h1>}
             <Link
                 to={`/Details/${item.id}`}
                 onClick={() => {
