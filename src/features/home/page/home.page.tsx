@@ -7,6 +7,7 @@ import {
 } from '../../../infrastructure/services/gifs.api';
 import * as actions from '../../../infrastructure/componentes/reducers/privateReducer/action.creator';
 import { Giflist } from '../../../infrastructure/componentes/gif.list/gif.list';
+import { Header } from '../../../infrastructure/componentes/header/header';
 
 function HomePage() {
     const initialStateTrending = {
@@ -73,40 +74,48 @@ function HomePage() {
     }, [form.search]);
     // ----------------------------------------------------------------
     return (
-        <div className="home">
-            <h1>Home</h1>
-            <Auth></Auth>
-            <form
-                style={{
-                    display: 'flex',
-                    alignItems: ' center',
-                    justifyContent: 'center',
-                    margin: '10px',
-                }}
-            >
-                <input
-                    type="text"
-                    placeholder="Search"
-                    name="search"
-                    value={form.search}
-                    onInput={handleForm}
-                    style={{ width: '300px', height: '50px', fontSize: '2rem' }}
-                />
-            </form>
-            <div>
-                <>
-                    {form.search === '' ? (
-                        <>
-                            <Giflist data={trending.data}></Giflist>{' '}
-                        </>
-                    ) : (
-                        <>
-                            <Giflist data={search.data}></Giflist>
-                        </>
-                    )}
-                </>
+        <>
+            <div className="home">
+                <h1>
+                    <Header title="MOCHIPHY" />
+                </h1>
+                <Auth></Auth>
+                <form
+                    style={{
+                        display: 'flex',
+                        alignItems: ' center',
+                        justifyContent: 'center',
+                        margin: '10px',
+                    }}
+                >
+                    <input
+                        type="text"
+                        placeholder="Search"
+                        name="search"
+                        value={form.search}
+                        onInput={handleForm}
+                        style={{
+                            width: '300px',
+                            height: '50px',
+                            fontSize: '2rem',
+                        }}
+                    />
+                </form>
+                <div>
+                    <>
+                        {form.search === '' ? (
+                            <>
+                                <Giflist data={trending.data}></Giflist>{' '}
+                            </>
+                        ) : (
+                            <>
+                                <Giflist data={search.data}></Giflist>
+                            </>
+                        )}
+                    </>
+                </div>
             </div>
-        </div>
+        </>
     );
 }
 
