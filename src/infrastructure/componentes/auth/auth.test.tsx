@@ -47,8 +47,7 @@ describe('Given Auth component', () => {
             );
         });
         test('Then it should display the title', () => {
-            const title = new RegExp('PrivateRoute', 'i');
-            const element = screen.queryByText(title);
+            const element = screen.queryByText(/PrivateRoute/i);
             expect(element).toBe(null);
             expect(Navigate).toHaveBeenCalled();
         });
