@@ -43,18 +43,6 @@ describe('Given the gifs.local.api component', () => {
         });
 
         test('Then if i use deleteLocalData function, it should return a Promise of a string', async () => {
-            const mockGifList: Array<IElementData> = [
-                {
-                    title: 'test',
-                    id: ``,
-                    rating: '',
-                    images: {
-                        downsized: {
-                            url: '',
-                        },
-                    },
-                },
-            ];
             global.fetch = jest.fn().mockResolvedValue({
                 json: jest.fn().mockResolvedValue({}),
                 ok: true,
