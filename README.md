@@ -1,14 +1,12 @@
-# Week 5 - Proyecto en equipo
+# Proyecto GIFS
 
-Tenéis que crear una SPA con varias páginas en React, gestionando el estado común con context + reducer. La app debe ser responsive (mobile + desktop) / mobile first.
+Este proyecto es una aplicación web moderna y flexible que permite a los usuarios buscar y compartir GIFS.
 
-Mínimo de páginas (vistas): Lista API pública, lista API privada y detail. Alguna/s de ellas se tiene que cargar mediante lazy loading.
+## Documentación API
 
-La app se conectará a una API de vuestra elección y listará los elementos. En dicho listado tiene que haber paginación y también un filtro como mínimo. A partir de este listado tendréis que crear otro listado conectado a una API local, donde implementaréis CRUD.
+https://support.giphy.com/hc/en-us/articles/360034600411-GIPHY-API
 
-La interfaz debe dar feedback de cuando se está esperando una response de las APIs, y también debe gestionar los errores de éstas.
-
-Requisitos:
+## Organización seguida:
 
 -   Diseño en Figma
 -   Listado de componentes y responsabilidades
@@ -26,18 +24,8 @@ Requisitos:
 -   Sonarcloud, mínimo de un escaneo diario
 -   Mínimo de un aprovals para poder mergear PR
 -   Desplegada a Netlify / Vercel
-
 -   HTML semántico (validado)
 -   CSS con BEM (validado)
--   Testing con coverage. Todos los tipos de tests que hemos visto.
+-   Testing con coverage. 
 -   Optimizada (Lighthouse en Netlify / Vercel)
 
-## Challenge WeekEnd
-
--   Seleccionar
-    -   API: probarla -> consistencia / rendimiento / no pago
-    -   Nombre de Grupo
--   Diseño en Figma
--   Listado de componentes y responsabilidades
--   Trello:
-    -   Columnas Backlog, ToDo, In progress, Review/Testing y Done
